@@ -1,0 +1,66 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<style type="text/css">
+        td
+        {
+          padding : 5px 5px 5px 5px;
+        }
+        body {
+            background: url( '{% static "app1/images/add_book.jpg" %}'  );
+            background-repeat:repeat;
+            background-size:100%;
+
+            }
+    </style>
+</head>
+<body>
+
+<div class="row">
+	<center>
+		{% if msg %}
+        <span class="alert-success" >{{msg}}</span>
+			{% endif %}
+	</center>
+	<center>
+		{% if not cart %}
+		<h3>{{msg2}}</h3>
+			{% endif %}
+	</center>
+	<center>
+		{% if total %}
+		<h3>Total Book In Cart: {{total}}</h3>
+			{% endif %}
+	</center>
+    {% for b in cart %}
+		<div id="box" class="col-sm-3">
+			<div class="container">
+		  		<div class="card" style="width:250px">
+		    		<img class="card-img-top" src="{{ b.book.book_image.url }}" alt="Card image" width=250px height=250px>
+		    			<div class="card-body">
+		      				<h5 class="card-title">Book Name: {{b.book.book_name}}</h5>
+		      				<h5 class="card-title">Book Price: {{b.book.book_price}}</h5>
+								<h5 class="card-title">Book Quantity: {{b.book.quantity }}</h5>
+							<a href="{% url 'remove_cart' pk=b.book.pk %}" class="btn btn-primary">Remove</a>
+							<a href="{% url 'add_wishlist' pk=b.book.pk %}" class="btn btn-primary">Add to Wishlist</a>
+
+		    			</div>
+		  		</div>
+			</div>
+		</div>
+    {% endfor %}
+
+	</div>
+		{% if cart %}
+       <center><a style="margin-top: 15px;" href="{% url 'order_details' %}" class="btn btn-success btn-lg" type="submit">Continue to checkout</a></center>
+		{% endif %}
+
+    {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<style type="text/css">
+        body {
+            background: url( '{% static "app1/images/add_book.jpg" %}'  );
+            background-repeat:no-repeat;
+            background-size:100%;
+
+            }
+    </style>
+</head>
+<body>
+
+<div class="row">
+	<center>
+		{% if msg %}
+        <span class="alert-success" >{{msg}}</span>
+			{% endif %}
+	</center>
+
+    {% for b in book %}
+
+    {% if b.book_category == 'java' %}
+
+		<div id="box" class="col-sm-3">
+			<div class="container">
+		  		<div class="card" style="width:250px">
+		    		<img class="card-img-top" src="{{ b.book_image.url }}" alt="Card image" width=250px height=250px>
+		    			<div class="card-body">
+		      				<h5 class="card-title">Book Name: {{b.book_name}}</h5>
+		      				<h5 class="card-title">Book Price: {{b.book_price}}</h5>
+							{% if not request.session.fname %}
+							<a href="{% url 'login' %}" class="btn btn-primary">Buy Now</a>
+							{% endif %}
+							{% if request.session.fname %}
+							<a href="{% url 'add_cart' pk=b.pk %}" class="btn btn-primary">Buy now</a> <a href="{% url 'add_cart' pk=b.pk %}" class="btn btn-primary">Add to Cart</a> {% endif %}
+<!--		      				<a href="{% url 'more_details' pk=b.pk %}">More Detail</a><br>-->
+<!--							<a href="{% url 'remove_book' pk=b.pk %}">Remove</a>-->
+		    			</div>
+		  		</div>
+			</div>
+		</div>
+    {% endif %}
+    {% endfor %}
+
+	</div>
+
+    {% endblock %}
+
+</body>
+</html>

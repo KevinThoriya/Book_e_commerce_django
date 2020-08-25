@@ -1,0 +1,76 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        td
+        {
+          padding : 5px 5px 5px 5px;
+
+        }
+         body {
+            background: url( '{% static "app1/images/bg-main.jpg" %}'  );
+            background-repeat:no-repeat;
+            background-size:100%;
+
+            }
+            table{
+              margin-left : 100px;
+            }
+    </style>
+</head>
+<body>
+<center><h2><b>Order Detail</b> </h2></center>
+<center>
+        <form name="order_details" method="post"  action="{% url 'order_details' pk=book.pk %}" >
+            {% csrf_token %}
+            {% if msg%}
+                 <span class="alert-success">{{msg}}</span>
+            {% endif %}
+            <center>{% if msg1 %}
+             <span class="alert-danger"> {{msg1}}</span>
+             {% endif %}
+            </center>
+            <table>
+                <tr>
+                    <td><b>Name: </b></td>
+                    <td><input type="text"  name="name" ></td>
+                </tr>
+                <tr>
+                    <td><b>Email : </b></td>
+                    <td><input type="text" name="email" value="{{user.email}}" ></td>
+                </tr>
+                <tr>
+                    <td><b>Mobile Number : </b></td>
+                    <td><input type="text" name="mobile"></td>
+                </tr>
+                <tr>
+                    <td><b>Address :</b></td>
+                    <td><textarea rows="5" cols="21" name="address"></textarea></td>
+                </tr>
+                <tr>
+                    <td><b>City : </b></td>
+                    <td><input type="text" name="city"></td>
+                </tr>
+                <tr>
+                    <td><b>State : </b></td>
+                    <td><input type="text" name="state" ></td>
+                </tr>
+                  <tr>
+                    <td><b>Zip Code: </b></td>
+                    <td><input type="text" name="zip_code" ></td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        <input class="btn-primary" type="submit" name="submit" value="Proceed for Payment">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% extends data|yesno:"app1/base.html,app1/seller_header.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<style type="text/css">
+        body {
+            background: url( '{% static "app1/images/bg-main.jpg" %}'  );
+            background-size:100%;
+            }
+    </style>
+</head>
+<body>
+
+<div class="row">
+	<center>
+		{% if msg %}
+        <span class="alert-success" >{{msg}}</span>
+			{% endif %}
+	</center>
+		<div id="box" class="col-sm-3">
+			<div class="container">
+		  		<div class="card" style="width:250px">
+		    		<img class="card-img-top" src="{{ books.book_image.url }}" alt="Card image" width=250px height=250px>
+		    			<div class="card-body">
+		      				<h5 class="card-title">Book Name: {{books.book_name}}</h5>
+		      				<h5 class="card-title">Book Price: {{books.book_price}}</h5>
+		      				<h5 class="card-title">Book Author: {{books.book_author}}</h5>
+		      				<h5 class="card-title">Book Description: {{books.book_desc}}</h5>
+
+							{% if user.account_type == 'user' %}
+							<a href="{% url 'all_book' %}">Back To View Book Page</a>
+							{% endif %}
+							{% if user.account_type == 'seller' %}
+							<a href="{% url 'view_books' %}">Back To View Book Page</a><br>
+							<a href="{% url 'remove_book' pk=books.pk %}">Remove</a>
+							{% endif %}
+
+		    			</div>
+		  		</div>
+			</div>
+		</div>
+
+
+	</div>
+
+    {% endblock %}
+
+</body>
+</html>
+

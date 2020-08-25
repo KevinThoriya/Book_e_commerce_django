@@ -1,0 +1,140 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<style type="text/css">
+        td
+        {
+          padding : 5px 5px 5px 5px;
+        }
+        .navbar-inner{
+           background-color: transparent;
+        }
+        body {
+            background: url( '{% static "app1/images/bg-main.jpg" %}'  );
+            background-size:100%;
+            }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inner container">
+   <div>
+      <ul class="nav navbar-nav navbar-right">
+		  <li class="dropdown"><a class="dropdown-toggle glyphicon glyphicon-sort" style="color:black;" data-toggle="dropdown" href="#">Sort<span class="caret "> </span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'sort1'  %}" name="s1">Sort by A-Z</a></li>
+          <li><a href="{% url 'sort2' %}" name="s2">Sort by Z-A</a></li>
+          <li><a href="{% url 'sort3' %}" name="s3">Sort by Price Low-High</a></li>
+          <li><a href="{% url 'sort4' %}" name="s4">Sort by Price High-Low</a></li>
+        </ul>
+      	</li>
+		  <li class="dropdown"><a class="dropdown-toggle glyphicon glyphicon-filter" style="color:black;" data-toggle="dropdown" href="#">Filter<span class="caret "> </span></a>
+        <ul class="dropdown-menu">
+			<form method="post" action="{% url 'filter1' %}">
+				{% csrf_token %}
+          <li>&nbsp;&nbsp;<input type="text" size="5" name="price1" >-Price-<input type="text" size="5" name="price2" style=""></li>
+				<center><li><input type="submit" style="margin-top:5px;" class="btn btn-primary" name="submit" value="Filter"></li></center>
+				</form>
+        </ul>
+      	</li>
+   </div>
+</nav>
+<div class="row">
+		{% if msg %}
+		<center>
+        <span class="alert-success" >{{msg}}</span></center>
+			{% endif %}
+	{% if sort %}
+	{% for b in sort %}
+
+		<div id="box" class="col-sm-3">
+			<div class="container">
+		  		<div class="card " style="width:250px; margin-top:10px;">
+		    		<img class="card-img-top  " src="{{ b.book_image.url }}" alt="Card image" width=250px height=250px>
+		    			<div class="card-body">
+		      				<h5 class="card-title">Book Name: {{b.book_name}}</h5>
+		      				<h5 class="card-title">Book Price: {{b.book_price}}</h5>
+
+                            {% if not request.session.fname %}
+							<a href="{% url 'login' %}" class="btn btn-primary">Buy Now</a>
+							<a href="{% url 'user_more_detail' pk=b.pk %}">More Detail</a><br>
+							{% endif %}
+							{% if request.session.fname %}
+							<a href="{% url 'add_cart' pk=b.pk %}" class="btn btn-primary">Buy Now</a>
+							<a href="{% url 'add_cart' pk=b.pk %}" class="btn btn-primary">Add to Cart</a>
+							{% endif %}
+		    			</div>
+		  		</div>
+			</div>
+		</div>
+    {% endfor %}
+	{% endif %}
+	</div>
+<div class="row">
+	{% if msg3 %}
+		<center>
+        <span class="alert-success" >{{msg3}}</span></center>
+			{% endif %}
+	{% if ft %}
+	{% for b in ft %}
+		<div id="box" class="col-sm-3">
+			<div class="container">
+		  		<div class="card " style="width:250px; margin-top:10px;">
+		    		<img class="card-img-top  " src="{{ b.book_image.url }}" alt="Card image" width=250px height=250px>
+		    			<div class="card-body">
+		      				<h5 class="card-title">Book Name: {{b.book_name}}</h5>
+		      				<h5 class="card-title">Book Price: {{b.book_price}}</h5>
+							<a href="{% url 'user_more_detail' pk=b.pk %}">More Detail</a><br>
+                            {% if not request.session.fname %}
+							<a href="{% url 'login' %}" class="btn btn-primary">Buy Now</a>
+							{% endif %}
+							{% if request.session.fname %}
+							<a href="{% url 'add_cart' pk=b.pk %}" class="btn btn-primary">Buy Now</a>
+							<a href="{% url 'add_cart' pk=b.pk %}" class="btn btn-primary">Add to Cart</a>
+							{% endif %}
+		    			</div>
+		  		</div>
+			</div>
+		</div>
+    {% endfor %}
+	{% endif %}
+	</div>
+<div class="row">
+
+		{% if msg %}
+		<center>
+        <span class="alert-danger" >{{msg}}</span></center>
+			{% endif %}
+	{% if msg4 %}
+		<center>
+        <span class="alert-success" >{{msg4}}</span></center>
+			{% endif %}
+  {% for b in book %}
+		<div id="box" class="col-sm-3">
+			<div class="container">
+		  		<div class="card " style="width:250px; margin-top:10px;">
+		    		<img class="card-img-top  " src="{{ b.book_image.url }}" alt="Card image" width=250px height=250px>
+		    			<div class="card-body">
+		      				<h5 class="card-title">Book Name: {{b.book_name}}</h5>
+		      				<h5 class="card-title">Book Price: {{b.book_price}}</h5>
+							<a href="{% url 'user_more_detail' pk=b.pk %}">More Detail</a><br>
+                            {% if not request.session.fname %}
+							<a href="{% url 'login' %}" class="btn btn-primary">Buy Now</a>
+							{% endif %}
+							{% if request.session.fname %}
+							<a href="{% url 'add_cart' pk=b.pk %}" class="btn btn-primary">Buy Now</a>
+							<a href="{% url 'add_cart' pk=b.pk %}" class="btn btn-primary">Add to Cart</a> {% endif %}
+		    			</div>
+		  		</div>
+			</div>
+		</div>
+    {% endfor %}
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+{% if request.session.seller %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'index' %}">E-book</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'index' %}">Home</a></li>
+      <li class=""><a href="{% url 'add_books'%}">Add Books</a></li>
+      <li><a href="{% url 'review_orders' %}">Review Orders</a></li>
+      <li><a href="{% url 'help' %}">Need Help!!</a></li>
+    </ul>
+      {% else %}
+      <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'index' %}">E-book</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'index' %}">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Languages Books <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'python' %}">Python</a></li>
+          <li><a href="{% url 'java' %}">Java</a></li>
+          <li><a href="{% url 'php' %}">PHP</a></li>
+        </ul>
+      </li>
+      <li><a href="{% url 'all_book' %}">View Books</a></li>
+      <li><a href="{% url 'contact' %}">Contact Us</a></li>
+      <li><a href="{% url 'about' %}">About Us</a></li>
+    </ul>
+      {% endif %}
+       {% if request.session.fname %}
+          <ul class="nav navbar-nav navbar-right">
+              <li><img style="padding : 6px 0px 0px 0px; border-radius: 50%; width: 40px; overflow:hidden; height: 40px;" src="{{ request.session.image}}" alt="No user"></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'profile' %}"><span class="glyphicon glyphicon-user"></span>Welcome, {{request.session.fname}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'profile' %}"> <span class="glyphicon glyphicon-user"></span> Edit Profile</a></li>
+                        <li><a href="{% url 'orders' %}"> <span class="glyphicon glyphicon-shopping-cart"></span> My Orders</a></li>
+                      <li><a href="{% url 'wishlist' %}"> <span class="glyphicon glyphicon-heart"></span> Wishlist ({{ request.session.count_wish }}) </a></li>
+                      <li><a href="{% url 'change_password' %}"> <span class="glyphicon glyphicon-edit"></span> Change Password</a></li>
+                        <li><a href="{% url 'logout' %}"> <span class="glyphicon glyphicon-log-in"></span>   Logout</a></li>
+                    </ul>
+              </li>
+              <li><a href="{% url 'view_cart' %}"> <span class="glyphicon glyphicon-shopping-cart"></span> Cart ({{ request.session.count_cart }}) </a></li>
+          </ul>
+       {% else %}
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          </ul>
+       {% endif %}
+
+  </div>
+</nav>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

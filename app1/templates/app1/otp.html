@@ -1,0 +1,48 @@
+{% extends data|yesno:"app1/base.html,app1/seller_header.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        td
+        {
+          padding : 5px 5px 5px 5px;
+        }
+    </style>
+</head>
+<body>
+<center><h3><b>OTP Verification </b> </h3></center>
+    <center>
+        <form name="verify_otp" method="post" action="{% url 'verify_otp' %}">
+            {% csrf_token %}
+            {% if msg%}
+                 <span class="alert-success">{{msg}}</span>
+            {% endif %}
+             {% if msg1%}
+                 <span class="alert-danger">{{msg1}}</span>
+            {% endif %}
+            <tr>
+                <td>
+                    <input type="hidden" name = "otp" value="{{otp}}">
+                    <input type="hidden" name = "email" value="{{email}}">
+                </td>
+            </tr>
+             <tr>
+                    <td>Enter OTP :</td>
+                    <td><input type="password" name="u_otp"></td>
+                </tr>
+
+
+            <tr>
+                    <td colspan="3" align="center">
+                        <input type="submit" name="submit" value="Verify">
+                    </td>
+                </tr>
+            </table>
+        </form>
+           {% endblock %}
+
+</body>
+</html>

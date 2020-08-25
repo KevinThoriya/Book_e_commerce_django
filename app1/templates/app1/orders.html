@@ -1,0 +1,36 @@
+{% extends 'app1/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   {% for b in orders %}
+		<div id="box" class="col-sm-3">
+			<div class="container">
+		  		<div class="card" style="width:250px">
+		    			<div class="card-body">
+		      				<h5 class="card-title">Name: {{b.name}}</h5>
+		      				<h5 class="card-title">Email: {{b.email}}</h5>
+		      				<h5 class="card-title">Order Price: {{b.amount}}</h5>
+                            <p>Mobile: {{b.mobile}}</p>
+                            <p>Address: {{b.address}}</p>
+                            <p>City: {{b.city}}-{{b.zip_code}}</p>
+                            <p>State: {{b.state}}</p>
+							 <hr style="color:black; border:5px;">
+
+		    			</div>
+		  		</div>
+			</div>
+		</div>
+
+    {% endfor %}
+
+</div>
+{% endblock %}
+
+
+</body>
+</html>

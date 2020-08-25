@@ -1,0 +1,86 @@
+{% extends 'app1/seller_header.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+{% block content %}
+<head>
+	<title>
+	</title>
+	<style type="text/css">
+        td
+        {
+          padding : 5px 5px 5px 5px;
+        }
+        body {
+            background: url( '{% static "app1/images/add_book.jpg" %}'  );
+            background-repeat:no-repeat;
+            background-size:100%;
+
+            }
+    </style>
+</head>
+<body>
+	<center>
+		{% if msg %}
+        <span class="alert-success" >{{msg}}</span>
+			{% endif %}
+	</center>
+<center><h1>Add Book Page</h1>
+<form name="add_books" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+	<table>
+		<tr>
+			<td>Select Category</td>
+			<td>
+				<select name="b_category">
+					<option>--Select--</option>
+					<option value="python">Python</option>
+					<option value="java">Java</option>
+					<option value="php">PHP</option>
+
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Book Name</td>
+			<td>
+				<input type="text" name="b_name" value="">
+			</td>
+		</tr>
+		<tr>
+			<td>Book price</td>
+
+			<td>
+				<input type="text" name="b_price" value="">
+			</td>
+		</tr>
+        <tr>
+			<td>Book Author</td>
+			<td>
+				<input type="text" name="b_author" value="">
+			</td>
+		</tr>
+		<tr>
+			<td>Book Desc</td>
+			<td>
+				<textarea rows="5" cols="21" name="b_desc"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>Book Image</td>
+			<td>
+				<input type="File" name="b_image">
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center">
+				<input type="submit" name="submit" value="Add Book"></td>
+			</td>
+		</tr>
+
+	</table>
+</center>
+</form>
+{% endblock %}
+</body>
+</html>

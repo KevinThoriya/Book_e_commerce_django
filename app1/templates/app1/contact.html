@@ -1,0 +1,82 @@
+{% extends 'app1/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        td
+        {
+          padding : 5px 5px 5px 5px;
+        }
+
+        body {
+            background: url( '{% static "app1/images/bg-main.jpg" %}'  );
+            background-repeat:repeat;
+            background-size:100%;
+
+            }
+    </style>
+</head>
+<body>
+<center><h3><b>Contact Us</b> </h3></center>
+    <center>
+        <form name="frm" method="post" action="{% url 'contact' %}">
+            {% csrf_token %}
+            {% if msg%}
+                 <span class="alert-success">{{msg}}</span>
+            {% endif %}
+            <center>{% if msg1 %}
+             <span class="alert-danger"> {{msg1}}</span>
+             {% endif %}
+            </center>
+            {% if msg2%}
+                 <span class="alert-danger">{{msg2}}</span>
+            {% endif %}
+             <center>{% if msg3 %}
+             <span class="alert-danger"> {{msg3}}</span>
+             {% endif %}
+            </center>
+             <center>{% if msg4 %}
+             <span class="alert-danger"> {{msg4}}</span>
+             {% endif %}
+            </center>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email"></td>
+                </tr>
+                <tr>
+                    <td>Mobile:</td>
+                    <td><input type="number" name="mobile"></td>
+                </tr>
+                <tr>
+                    <td>Remarks :</td>
+                    <td><textarea cols="21" rows="5" name="remarks"></textarea> </td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        <input type="submit" name="submit" value="submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <h3><center><b><i>Remarks</b></i></center></h3>
+        <hr class="alert-danger">
+        {% for i in contacts %}
+         <p><b>Name:</b> {{i.name}}</p>
+         <p><b>Remarks:</b> {{i.remarks}}</p>
+        <hr class="alert-danger">
+        {% endfor %}
+    </center>
+
+    {% endblock %}
+
+</body>
+</html>
