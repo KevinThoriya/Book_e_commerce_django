@@ -3,15 +3,16 @@
     <div class="container-fluid">
       <div class="">
         <h2 class="bs_heading">Trending <b>Products</b></h2>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+        <div id="myCarousel" class="carousel slide row" data-ride="carousel" data-interval="0">
           <!-- Carousel indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+          <ol class="carousel-indicators bs_notification">
+            <li data-target="#myCarousel" data-slide-to="2" class="bs_notifer active"></li>
+            <li data-target="#myCarousel" data-slide-to="0" class="bs_notifer "></li>
+            <li data-target="#myCarousel" data-slide-to="1" class="bs_notifer "></li>
           </ol>
           <!-- Wrapper for carousel items -->
-          <div class="carousel-inner">
+          <div class="col-lg-1"></div>
+          <div class="carousel-inner col-lg-10">
             <div class="carousel-item active">
               <div class="row">
                 {% include 'app1/next_level/conponents/product_view.html'%}
@@ -38,11 +39,11 @@
             </div>
           </div>
           <!-- Carousel controls -->
-          <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-            <i class="fa fa-angle-left"></i>
+          <a class="carousel-control-prev bs_prev" href="#myCarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
           </a>
-          <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-            <i class="fa fa-angle-right"></i>
+          <a class="carousel-control-next bs_next" href="#myCarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
           </a>
         </div>
       </div>
