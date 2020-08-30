@@ -271,3 +271,37 @@ li.nav-item.active > a.nav-link > p{
     opacity: 1;
     transform: scale(1.07);
 }
+.fdb{
+    margin-top: 70px;
+    margin-bottom: 30px;
+    border-top: 2px solid var(--text-color3);
+    border-bottom: 2px solid var(--text-color3);
+}
+.fdb__title > h3{
+    font-family: 'Allerta Stencil', sans-serif;
+    color: black;
+    margin: auto 30px;
+
+}
+.fdb__title{
+    display: flex;
+}
+.fdb__title > ul{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.fdb__title > ul > li{
+    list-style: none;
+    display: flex;
+    margin-top: 20px ;
+}
+.fdb__text > p, .fdb__text > p > span, .fdb__text > p > strong{
+    color: var(--text-color2);
+    margin-top: 10px;
+}
+.fdb__title > ul > li > img{
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
