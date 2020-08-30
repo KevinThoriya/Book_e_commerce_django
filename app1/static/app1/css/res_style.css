@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: white;;
+}
+:root {
+    --text-color2: #616f39;
+    --text-color1: #3e432e;
+    --text-color3: #a7d129;
+    --back-color: linear-gradient(to right, #28C76F , #81FBB8);
+    --main-bg: linear-gradient(to right, rgb(1, 1, 12) , rgb(13, 2, 61));
+  }
+body { 
+    margin: 0;
+    padding: 0;
+
+}
+.navbar-brand  {
+    font-weight: 900;
+    color: white;
+}
+.main__brand  > h1 {
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background-image: var(--back-color);
+    font-family: 'Allerta Stencil', sans-serif;
+}
+.navbar{
+    color: white;
+    background-image: var(--back-color);
+}
+li.nav-item {
+    width: 100px;
+    opacity: 0.7;
+    margin: 0px 20px;
+    padding-bottom: 17px;
+}
+a.nav-link{
+    display: flex; 
+    flex-direction: column;
+    height: 50px;
+}
+a.nav-link > p {
+    text-transform: uppercase;
+    display: none;
+    justify-content: center;
+    font-weight: 900;
+}
+li.nav-item:hover > a.nav-link > p {
+    display: inline-flex;
+    color: white;
+}
+li.nav-item:hover, li.nav-item.active{
+    transform: scale(1.12);
+    opacity: 1;
+    background-color: var(--text-color3);
+    border-radius: 20px;
+}
+.nav-link > span.material-icons {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+}
+li.nav-item.active > a.nav-link > p{
+    display: inline-flex;
+    color: white;    
+}
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--text-color2);
+    border: 3px solid white;
+}
+.offer-banner{
+    margin-top: 20px;
+    background-image: var(--back-color);
+}
+.offer-banner__inside{
+    padding: 15px;
+}
+.offer-banner__image{
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+}
+.offer-banner__right{
+    position : relative;
+}
+.offer-banner__right__inside{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    max-width: 450px;
+}
+.banner__upper{
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 300;
+    font-size: 1rem;
+}
+.banner__middle{
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2.2rem;
+    margin-bottom: 15px;
+    font-family: 'Allerta Stencil', sans-serif;
+}
+.banner__down{
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+.banner__shop_button{
+    background-image: var(--back-color);
+    color: white;
+    cursor: pointer;
+}
+.banner__shop_button:hover{
+    transform: scale(1.12);
+}

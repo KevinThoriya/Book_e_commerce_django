@@ -1,6 +1,6 @@
-from django.urls import path
+from django.urls import path , include
 from . import views
-
+from .next_level import next_level_urls
 urlpatterns = [
     path('', views.index, name='index'),
     path('python/', views.python, name='python'),
@@ -49,4 +49,4 @@ urlpatterns = [
     # path("payment-complete", views.paymentcomplete, name="payment-complete"),
 
 
-]
+] + next_level_urls.urlpatterns

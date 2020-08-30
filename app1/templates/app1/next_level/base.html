@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'app1/images/next_level/logo.jpg' %}" type="image/x-icon">
+    <link rel=apple-touch-icon href="{% static 'app1/images/next_level/logo.jpg'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'app1/css/res_style.css' %}">
+
+    <!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  </head>
+  <body>
+    {% include 'app1/next_level/conponents/navbar.html' %}
+    {% block body %} {% endblock %}
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="{% static 'app1/js/res_script.js' %}"></script>
+</html>

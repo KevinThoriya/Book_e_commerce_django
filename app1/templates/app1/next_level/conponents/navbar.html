@@ -1,0 +1,70 @@
+
+<div class="main__brand">
+  <h1>YK Wholeseller</h1>
+</div>
+<nav class="navbar navbar-expand-lg sticky-top ">
+  <div class="container">
+    <a class="navbar-brand" href="#">E - Book</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main_nav">
+      <ul class="navbar-nav">
+        <li class="nav-item active"> <a class="nav-link" href="#">
+          <span class="material-icons">home</span>
+          <p>home</p>
+        </a> </li>
+        <li class="nav-item"><a class="nav-link" href="#">
+          <span class="material-icons">account_circle</span>
+          <p>About</p>
+        </a></li>
+        <li class="nav-item"><a class="nav-link" href="#">
+          <span class="material-icons">miscellaneous_services</span>
+          <p>Services</p>
+        </a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link " href="#" data-toggle="dropdown">
+            <span class="material-icons">search</span>
+            <p>Find</p>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"> Python </a></li>
+            <li><a class="dropdown-item" href="#"> Java </a></li>
+            <li><a class="dropdown-item" href="#"> PHP </a></li>
+          </ul>
+        </li>
+      </ul>
+      {% if request.session.fname %}
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#">
+          <span class="material-icons">shopping_cart</span>
+          <p> Cart (10) </p>
+        </a>
+        </li>
+        <span class="avatar"></span>
+        <li class="nav-item dropdown ">
+          <a class="nav-link  " href="#" data-toggle="dropdown">
+            <p style="display: inline; color:white;"> Kevin Thoriya </p> </a>
+          <ul class="dropdown-menu ">
+            <li><a class="dropdown-item" href="#"> <span class="material-icons">person_outline</span> Profile </a></li>
+            <li><a class="dropdown-item" href="#"> <span class="material-icons">airline_seat_flat_angled</span>  LogOut </a></li>
+          </ul>
+        </li>
+      </ul>
+      {% else %}
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#">
+          <span class="material-icons">login</span>
+          <p> Log In </p>
+        </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">
+          <span class="material-icons">face</span>
+          <p> Sign Up </p>
+        </a>
+        </li>
+      </ul>
+      {% endif %}
+    </div> <!-- navbar-collapse.// -->
+  </div><!-- container //  -->
+</nav>
