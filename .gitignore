@@ -4,3 +4,8 @@
 *.pyc
 .idea/*
 .idea
+*/*/__pycache__
+*/*/__pycache__/*
+__pycache__
+p3/__pycache__
+p3/__pycache__/*
