@@ -388,22 +388,15 @@ li.nav-item.active > a.nav-link > p{
 .footer ul.quick-links li:hover a i {
     font-weight: 700;
 }
-
-
-
-@media (max-width:767px){
-	.footer h5 {
-    padding-left: 0;
-    border-left: transparent;
-    padding-bottom: 0px;
-    margin-bottom: 10px;
-}
-}
 .social__icon {
     width: 50px;
     height: 50px;
     margin: 0px 20px;
     fill: #a7d129; 
+    transition: all .5s ease-out;
+}
+.social__icon:hover{
+    transform: scale(1.07);
 }
 .offer-box-container{
     position: relative;
@@ -447,5 +440,28 @@ li.nav-item.active > a.nav-link > p{
     font-size: 1.5rem;
     text-align: center;
     border-radius: 15px;
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:767px){
+.footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+.hidden-xs{
+    display: none;
+}
 }
