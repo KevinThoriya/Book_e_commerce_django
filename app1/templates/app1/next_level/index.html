@@ -7,12 +7,12 @@
 <!--Offer Banner ended-->
 
 <!--Best Sellers Book started-->
-  {% include 'app1/next_level/conponents/best_sellers.html' %}
+  {% include 'app1/next_level/conponents/best_sellers.html' with id="trending_product" text1="Trending" text2="Books"  %}
 <!--Best sellers book ended-->
 
   {% include 'app1/next_level/conponents/free_delevery_box.html' %}
 
   <!--new arrive started-->
-  {% include 'app1/next_level/conponents/best_sellers.html' %}
+  {% include 'app1/next_level/conponents/best_sellers.html' with id="new_added" text1="New" text2="Added" %}
 <!--new arrive ended-->
 {% endblock %}

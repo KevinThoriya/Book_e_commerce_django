@@ -2,13 +2,13 @@
   <div class="bs_Bottom">
     <div class="container-fluid">
       <div class="">
-        <h2 class="bs_heading">Trending <b>Products</b></h2>
-        <div id="myCarousel" class="carousel slide row" data-ride="carousel" data-interval="0">
+        <h2 class="bs_heading">{{text1}} <b>{{text2}}</b></h2>
+        <div id="{{ id }}" class="carousel slide row" data-ride="carousel" data-interval="0">
           <!-- Carousel indicators -->
           <ol class="carousel-indicators bs_notification">
-            <li data-target="#myCarousel" data-slide-to="2" class="bs_notifer active"></li>
-            <li data-target="#myCarousel" data-slide-to="0" class="bs_notifer "></li>
-            <li data-target="#myCarousel" data-slide-to="1" class="bs_notifer "></li>
+            <li data-target="#{{id}}" data-slide-to="2" class="bs_notifer active"></li>
+            <li data-target="#{{id}}" data-slide-to="0" class="bs_notifer "></li>
+            <li data-target="#{{id}}" data-slide-to="1" class="bs_notifer "></li>
           </ol>
           <!-- Wrapper for carousel items -->
           <div class="col-lg-1"></div>
@@ -39,10 +39,10 @@
             </div>
           </div>
           <!-- Carousel controls -->
-          <a class="carousel-control-prev bs_prev" href="#myCarousel" data-slide="prev">
+          <a class="carousel-control-prev bs_prev" href="#{{id}}" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
           </a>
-          <a class="carousel-control-next bs_next" href="#myCarousel" data-slide="next">
+          <a class="carousel-control-next bs_next" href="#{{id}}" data-slide="next">
             <span class="carousel-control-next-icon"></span>
           </a>
         </div>
