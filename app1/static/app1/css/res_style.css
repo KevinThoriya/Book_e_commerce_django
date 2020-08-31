@@ -305,3 +305,15 @@ li.nav-item.active > a.nav-link > p{
     height: 100px;
     margin-right: 20px;
 }
+.thumb-wrapper{
+    position: relative;
+}
+.Product__new{
+    z-index: 100;
+    padding: 5px 20px;
+    font-weight: 600;
+    border-radius: 0px 10px 10px 0px;
+    color: #fff;
+    background-image: var(--back-color);
+    position: absolute;
+}
