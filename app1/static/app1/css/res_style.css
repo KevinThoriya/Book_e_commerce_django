@@ -16,6 +16,7 @@
 body { 
     margin: 0;
     padding: 0;
+    height: 100vh;
 
 }
 .navbar-brand  {
@@ -194,7 +195,7 @@ li.nav-item.active > a.nav-link > p{
     margin-bottom: 30px;
 }
 .banner__buttons{
-    background-image: linear-gradient(to right, #28C76F , #fff 51%, #28C76F 100%);;
+    background-image: linear-gradient(to right, #28C76F , #fff 51%, #28C76F 100%);
     color: white;
     cursor: pointer;
     font-weight: 800;
@@ -380,7 +381,7 @@ li.nav-item.active > a.nav-link > p{
 .footer ul.quick-links li:hover{
 	padding: 3px 0;
 	margin-left:5px;
-	font-weight:700;a
+    font-weight:700;
 }
 .footer ul.quick-links li a i{
 	margin-right: 5px;
@@ -441,9 +442,67 @@ li.nav-item.active > a.nav-link > p{
     text-align: center;
     border-radius: 15px;
 }
-
-
-
+.product-view{
+    position: relative;
+    background: var(--button-white-bg);
+    padding: 30px;
+    margin: 30px;
+}
+.product-view-back{
+    background: #fff;
+    color: black;
+    padding: 2rem;
+    width: 90vw;
+    margin: auto;
+}
+.product_main__image_cont{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.product_main__image{
+    width: auto;
+    height: 500px;
+    margin: 0px auto;
+}
+.black-text{
+    color: #333;
+}
+.product-view__details > * {
+    color: #333;
+    margin: 10px 50px 0px 40px;
+}
+.product-view__details > h6 , h1, h3{
+    font-family:  'Allerta Stencil', sans-serif;
+}
+.review-rate{
+    display: flex;
+    margin-top: 20px;
+}
+.product_main__more_disc{
+    margin-bottom: 30px;
+    max-height: 100px;
+    overflow-Y: scroll;
+}
+.product_main__qty{
+    padding: 5px;
+    width: fit-content;
+    margin: 10px 50px;
+    border: 1px solid #555;
+}
+.product_main__qty > .plus{
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.product_main__qty > .total{}
+.product_main__qty > .minus{
+    margin-left: 20px;
+    margin-right: 10px;
+    
+}
+.product_main__add_to_cart{
+    color: gray;
+}
 
 
 
@@ -465,3 +524,28 @@ li.nav-item.active > a.nav-link > p{
     display: none;
 }
 }
+
+
+
+/* stack overflow */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #e7ebda; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #a7d129; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #616f39; 
+  }
