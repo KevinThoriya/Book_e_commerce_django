@@ -11,3 +11,4 @@ urlpatterns = [
     path(base_url + 'welcome/',views.login_signup,name="log_sign_n"),
 
 ]
+
