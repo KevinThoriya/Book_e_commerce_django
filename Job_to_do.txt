@@ -1,4 +1,5 @@
 Make a model for offer banner on home screen 
+fields are
 - offer_main_title
 - offer_sub_title
 - offer_image
