@@ -1,7 +1,10 @@
 {% extends 'app1/next_level/base.html' %}
 {% block title %} YK - Homepage {% endblock %}
 {% block body %}
+  
+  {% include 'app1/next_level/conponents/navbar.html' with login='active' %}
 
+  <h1 class="black-text">Login</h1>
 
   {% include 'app1/next_level/conponents/fotter.html' %}
 

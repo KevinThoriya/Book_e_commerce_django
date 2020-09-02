@@ -1,6 +1,7 @@
 {% extends 'app1/next_level/base.html' %}
 {% block title %} YK - Scala-seed {% endblock %}
 {% block body %}
+  {% include 'app1/next_level/conponents/navbar.html' with product_detail='active' %}
 
   {% include 'app1/next_level/conponents/product_detail_view.html' %}
 

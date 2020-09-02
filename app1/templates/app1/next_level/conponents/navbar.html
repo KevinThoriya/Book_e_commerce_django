@@ -10,19 +10,19 @@
     </button>
     <div class="collapse navbar-collapse" id="main_nav">
       <ul class="navbar-nav">
-        <li class="nav-item active"> <a class="nav-link" href="{% url 'home_n' %}">
+        <li class="nav-item {{home}}"> <a class="nav-link" href="{% url 'home_n' %}">
           <span class="material-icons">home</span>
           <p>home</p>
         </a> </li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'about_n' %}">
+        <li class="nav-item {{about}}"><a class="nav-link" href="{% url 'about_n' %}">
           <span class="material-icons">account_circle</span>
           <p>About</p>
         </a></li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'services_n' %}">
+        <li class="nav-item {{services}}"><a class="nav-link" href="{% url 'services_n' %}">
           <span class="material-icons">miscellaneous_services</span>
           <p>Services</p>
         </a></li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown {{book_list}}">
           <a class="nav-link " href="" data-toggle="dropdown">
             <span class="material-icons">search</span>
             <p>Find</p>
@@ -53,16 +53,10 @@
       </ul>
       {% else %}
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="{% url 'log_sign_n' %}">
-          <span class="material-icons">login</span>
+        <li class="nav-item {{login}}"><a class="nav-link" href="{% url 'log_sign_n' %}">
+          <span class="material-icons">face</span>
           <p> Log In </p>
         </a>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'log_sign_n' %}">
-          <span class="material-icons">face</span>
-          <p> Sign Up </p>
-        </a>
-        </li>
       </ul>
       {% endif %}
     </div> <!-- navbar-collapse.// -->
