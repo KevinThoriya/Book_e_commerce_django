@@ -6,3 +6,16 @@ def index(request):
 
 def product_detail(request):
     return render(request,'app1/next_level/product_detail_page.html')
+
+def about_us(request):
+    return render(request,'app1/next_level/about.html')
+
+def book_list(request):
+    # Sorting, filtering of book done here based on passing pera 
+    return render(request,'app1/next_level/book_list.html')
+
+def services(request):
+    return render(request,'app1/next_level/services.html')
+
+def login_signup(request):
+    return render(request,'app1/next_level/login_signup.html')

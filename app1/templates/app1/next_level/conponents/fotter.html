@@ -1,26 +1,23 @@
-{% load static %}
-
-<div class="footer">
+    <div class="footer">
     <div class="container">
         <div class="row text-center text-xs-center text-sm-left text-md-left">
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <h5>Quick links</h5>
                 <ul class="list-unstyled quick-links">
-                    <li><a href=""><span class="material-icons">double_arrow</span> Home</a></li>
-                    <li><a href=""><span class="material-icons">double_arrow</span> About</a></li>
-                    <li><a href=""><span class="material-icons">double_arrow</span> FAQ</a></li>
-                    <li><a href=""><span class="material-icons">double_arrow</span> Get Started</a></li>
-                    <li><a href=""><span class="material-icons">double_arrow</span> Videos</a></li>
+                    <li><a href="{% url 'home_n' %}"><span class="material-icons">double_arrow</span> Home</a></li>
+                    <li><a href="{% url 'about_n' %}"><span class="material-icons">double_arrow</span> About</a></li>
+                    <li><a href="{% url 'services_n' %}"><span class="material-icons">double_arrow</span>Services</a></li>
+                    <li><a href="{% url 'log_sign_n' %}"><span class="material-icons">double_arrow</span> Get Started</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <h5>Book Categories</h5>
                 <ul class="list-unstyled quick-links">
-                    <li><a href=""><span class="material-icons">double_arrow</span> Python</a></li>
-                    <li><a href=""><span class="material-icons">double_arrow</span> Javascript </a></li>
-                    <li><a href=""><span class="material-icons">double_arrow</span> PHP </a></li>
-                    <li><a href=""><span class="material-icons">double_arrow</span> Scala </a></li>
-                    <li><a href=""><span class="material-icons">double_arrow</span> Java </a></li>
+                    <li><a href="{% url 'books_n' %}"><span class="material-icons">double_arrow</span> Python</a></li>
+                    <li><a href="{% url 'books_n' %}"><span class="material-icons">double_arrow</span> Javascript </a></li>
+                    <li><a href="{% url 'books_n' %}"><span class="material-icons">double_arrow</span> PHP </a></li>
+                    <li><a href="{% url 'books_n' %}"><span class="material-icons">double_arrow</span> Scala </a></li>
+                    <li><a href="{% url 'books_n' %}"><span class="material-icons">double_arrow</span> Java </a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
