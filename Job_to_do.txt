@@ -37,5 +37,5 @@ Make a controller that returns a cuttenly running offer
     12      |       yes         |       200             |       no 
     13      |       yes         |       200             |       yes 
     14      |       yes         |       100             |       yes 
-    FUNCTION RETUEN : (9, 3 , 7, 5, 13, 4)
+    FUNCTION RETUEN : (9, 3 , 7, 5, 13)
 
