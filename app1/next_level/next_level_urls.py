@@ -10,5 +10,6 @@ urlpatterns = [
     path(base_url + 'books/',views.book_list,name="books_n"),
     path(base_url + 'welcome/',views.login_signup,name="log_sign_n"),
 
+]+[
+    path(base_url + 'product_view/',views.product_view,name="product_detail_view_n"),
 ]
-

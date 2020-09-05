@@ -5,7 +5,9 @@
     <div class="product__image">
       <img src="{% static 'app1/images/next_level/demo.jpg' %}" class="img-fluid" alt="">
       <div class="view-more-cont">
-        <div class="btn-lg view-more-button">View More</div>
+        <a data-fancybox data-type="ajax" data-src="{% url 'product_detail_view_n'%}" href="javascript:;">
+          <div data-id="{{id}}" class="btn-lg view-more-button view_more">View More</div>
+        </a>
       </div>
     </div>
     <div class="product__name">

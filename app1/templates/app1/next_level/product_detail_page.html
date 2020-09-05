@@ -5,15 +5,24 @@
 
   {% include 'app1/next_level/conponents/product_detail_view.html' %}
 
-
-  {% include 'app1/next_level/conponents/best_sellers.html' with id="you_may_aslo_like" text1="you may also" text2="Like"  %}
-
-    
+  
+  
   <center>
-    <h1 class="black-text">Review Comes Here</h1>
+    <h1 class="black-text">
+      Testimonial for this Book
+    </h1>
     
-  </center>
+    {% include 'app1/next_level/conponents/testimonials.html' with id="tt_of_product" %}
 
+    
+    <h1 class="black-text">
+      Reviews
+    </h1>
+    
+
+  </center>
+  
+  {% include 'app1/next_level/conponents/best_sellers.html' with id="you_may_aslo_like" text1="you may also" text2="Like"  %}
   {% include 'app1/next_level/conponents/fotter.html' %}
 
 

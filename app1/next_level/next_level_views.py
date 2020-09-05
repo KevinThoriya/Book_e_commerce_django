@@ -19,3 +19,7 @@ def services(request):
 
 def login_signup(request):
     return render(request,'app1/next_level/login_signup.html')
+
+def product_view(request):
+    return render(request,'app1/next_level/conponents/product_detail_view.html')
+    
