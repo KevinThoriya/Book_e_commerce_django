@@ -577,9 +577,88 @@ hr, .hr-ending-line{
     height: 1px;
     margin: 0px 20px;
 }
-
-
-
+.panel h2{ color:#444444; font-size:30px; margin:0 0 8px 0;}
+.panel p { color:#777777; font-size:14px; margin-bottom:20px; line-height:24px;}
+.panel h4 { color:#777777; font-size:18px; margin-bottom:10px; line-height:15px;}
+.login-form .form-control {
+  background: #e7ebda none repeat scroll 0 0;
+  border: 1px solid #e7ebda;
+  border-radius: 10px;
+  font-size: 15px;
+  height: 50px;
+  line-height: 50px;
+  outline-color: #23ba67;
+}
+input:focus{
+    outline-color: #a7d129;
+}
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 2px;
+  margin: 10px auto 30px;
+  max-width: 75%;
+  padding: 50px 70px 70px 71px;
+  box-shadow: 16px 18px 11px -5px rgba(0,0,0,0.4);
+  max-height: 420px;
+}
+.login-container{
+    position: relative;
+    /* background-image: var(--back-color); */
+    /* background: linear-gradient(to right, #23ba67 , rgba(0,0,0,0) 90%); */
+    padding: 30px;
+    margin: 30px;
+}
+.login-back-container{
+    padding: 2rem;
+    margin: auto;
+}
+.login-form .form-group {
+  margin-bottom:10px;
+}
+.login-form{ text-align:center;}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.login-regi-button {
+  background: var(--back-color) !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-size: 20px !important;
+  width: 100% !important;
+  height: 50px !important;
+  line-height: 50px !important;
+  padding: 0 !important;
+}
+.forgot {
+  text-align: right; margin-bottom:30px; float: right; 
+}
+.forgot > a{
+    color: #007b5e;
+}
+.botto-text {
+  color: #ffffff;
+  font-size: 14px;
+  margin: auto;
+}
+.form-control:focus {
+    color: #616f39;
+    background-image: linear-gradient(to right, #aed6c0, #84cca4 );
+    border-color: #23ba67;
+    outline: 0;
+}
+.register_feature{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.register_feature > p{
+    color : #616f39;
+}
+.form-heading{
+    color: #a7d129;   
+}
 
 
 
@@ -601,10 +680,14 @@ hr, .hr-ending-line{
     margin-bottom: 10px;
 }
 .hidden-xs{
-    display: none;
+    display: none !important;
 }
 }
-
+@media (min-width:767px){
+.hidden-lg{
+    display: none !important;
+}
+}
 
 
 /* stack overflow */

@@ -15,6 +15,9 @@
     <!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS 4.2.1) -->
   <link rel="stylesheet" href="{% static 'app1/css/bs.min.css' %}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <style>
+    {% block css %} {% endblock %}
+  </style>
   </head>
   <body>
     {% block body %} {% endblock %}

@@ -1,11 +1,18 @@
 {% extends 'app1/next_level/base.html' %}
 {% block title %} YK - Homepage {% endblock %}
+{% block css %} 
+{% load static %}
+body{
+  background: url({% static 'app1/images/next_level/login_back.png' %});
+}
+{% endblock %}
 {% block body %}
   
   {% include 'app1/next_level/conponents/navbar.html' with login='active' %}
+  <center>
 
-  <h1 class="black-text">Login</h1>
+    {% include 'app1/next_level/conponents/login_form.html'%}
 
-  {% include 'app1/next_level/conponents/fotter.html' %}
-
+    {% include 'app1/next_level/conponents/fotter.html' %}
+  </center>
 {% endblock %}
