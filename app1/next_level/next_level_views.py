@@ -20,6 +20,12 @@ def services(request):
 def login_signup(request):
     return render(request,'app1/next_level/login_signup.html')
 
+
+
+# other ajax requests 
 def product_view(request):
     return render(request,'app1/next_level/conponents/product_detail_view.html')
     
+def sign_up_form(request):
+    return render(request,'app1/next_level/conponents/signup.html')
+
