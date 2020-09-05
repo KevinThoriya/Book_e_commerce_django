@@ -39,3 +39,5 @@ Make a controller that returns a cuttenly running offer
     14      |       yes         |       100             |       yes 
     FUNCTION RETUEN : (9, 3 , 7, 5, 13)
 
+once this is down have to make a model for storing reviews of products
+details will be coming soon...
