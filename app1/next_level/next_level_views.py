@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, HttpResponse
 from app1.models import Contact, Register, Book, Cart, Wishlist, Order_details, Transaction
 from django.views.decorators.csrf import csrf_exempt
 from django.template import loader
+from django.templatetags.static import static
+import time
 import json
 
 def index(request):
@@ -34,7 +36,13 @@ def sign_up_form(request):
 
 @csrf_exempt
 def book_filter(request):
+    time.sleep(2)
     template = loader.get_template('app1/next_level/conponents/product_view.html')
+    cate = request.POST.get('categories')
+    rendering_div = ''
     product_dic = {}
-    rendering_div = template.render(product_dic,request)
+    if not cate == 'All Categories':
+        product_dic.update({'product_image':static('app1/images/next_level/'+cate.lower()+'_demo.png')})
+    for i in range(0,10):
+        rendering_div += template.render(product_dic,request)
     return HttpResponse(json.dumps({'result': rendering_div}))
