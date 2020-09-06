@@ -11,9 +11,68 @@
         <h1 class="black-text"> Books Based on : <span id="book_filter_name"  class="green-text"> All Categories</span></h1>
         <h6 class="black-text">Total 45 Books Found Listed Below</h6>
       </div>
-      <div class="col-xs-12 col-sm-5">
-      
+      <div class="col-xs-12 col-sm-5 end-child mt-3 mr-5 ">
+
+        <div class="btn-group selecter-filter-main mr-3">
+          <button type="button" class="btn " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="selector-filter">
+              <span class="upper-text mr-5"> Filter By : </span>
+              <span class="bottom-text ml-5" id="Categories"> All Categories</span>
+            </div> 
+          </button>
+          <div class="dropdown-menu select-filter-option-main">
+            <a class="dropdown-item dropdown-item-option" data-traget="#Categories" href="#">All Categories</a>
+            <a class="dropdown-item dropdown-item-option" data-traget="#Categories" href="#">Python</a>
+            <a class="dropdown-item dropdown-item-option" data-traget="#Categories" href="#">Javascript</a>
+            <a class="dropdown-item dropdown-item-option" data-traget="#Categories" href="#">PHP</a>
+            <a class="dropdown-item dropdown-item-option" data-traget="#Categories" href="#">Scala</a>
+            <a class="dropdown-item dropdown-item-option" data-traget="#Categories" href="#">Java</a>
+            <a class="dropdown-item dropdown-item-option" data-traget="#Categories" href="#">React</a>
+          </div>
+        </div>
+
+        <div class="btn-group selecter-filter-main mr-3">
+          <button type="button" class="btn " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="selector-filter">
+              <span class="upper-text mr-5"> Price in : </span>
+              <span class="bottom-text ml-5" id="price"> -- </span>
+            </div> 
+          </button>
+          <div class="dropdown-menu select-filter-option-main">
+            <a class="dropdown-item dropdown-item-option" data-traget="#price" href="#">--</a>
+            <a class="dropdown-item dropdown-item-option" data-traget="#price" href="#"> in 100</a>
+            <a class="dropdown-item dropdown-item-option" data-traget="#price" href="#">in 200</a>
+            <a class="dropdown-item dropdown-item-option" data-traget="#price" href="#">in 300</a>
+            <a class="dropdown-item dropdown-item-option" data-traget="#price" href="#">in 400</a>
+            <a class="dropdown-item dropdown-item-option" data-traget="#price" href="#">above 400</a>
+          </div>
+        </div>
+
       </div>
+      <hr class="mt-4 mb-4">
+
+      <div class="book-listing-con w-100">
+        <div class="row w-100 ml-2 product-main-div">
+          
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+            {% include 'app1/next_level/conponents/product_view.html'%}
+          
+
+        </div>
+      </div>
+
+
     </div>
   </div>
 

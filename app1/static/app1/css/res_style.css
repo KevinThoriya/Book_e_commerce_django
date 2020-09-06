@@ -572,6 +572,14 @@ li.nav-item.active > a.nav-link > p{
     float: left;
     justify-content: left;
 }
+.pull-right{
+    float: right;
+    justify-content: right;
+}
+.end-child{
+    display: flex !important;
+    place-content: flex-end;
+}
 hr, .hr-ending-line{
     width: 100%;
     height: 1px;
@@ -740,10 +748,33 @@ p {
 .wid-100{
     width: 100% !important;
 }
-
-
-
-
+.selector-filter {
+    display: flex;
+    flex-direction: column;
+}
+.selector-filter > .upper-text{
+    color: #616f39
+}
+.selector-filter > .bottom-text{
+    color: #a7d129;
+}
+.selecter-filter-main{
+    border: 1px solid #616f39;
+    border-radius: 10px;
+    box-shadow: 8px 10px 11px -5px rgba(0,0,0,0.4);
+}
+.select-filter-option-main{
+    box-shadow: 8px 10px 15px -5px rgba(0,0,0,0.7);
+    margin: 0;
+    padding: 0 !important;
+}
+.select-filter-option-main > .dropdown-item{
+    background-color: #e7ebda;
+    
+}
+.product-main-div > * {
+    margin-top: 10px;
+}
 
 
 
