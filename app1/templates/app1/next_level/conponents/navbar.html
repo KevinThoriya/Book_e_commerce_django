@@ -22,7 +22,11 @@
           <span class="material-icons">miscellaneous_services</span>
           <p>Services</p>
         </a></li>
-        <li class="nav-item dropdown {{book_list}}">
+        <li class="nav-item {{book_list}}"><a class="nav-link" href="{% url 'books_n' %}">
+          <span class="material-icons">search</span>
+          <p>Find</p>
+        </a></li>
+        <li class="nav-item dropdown {{book_list}} hidden-xs hidden-lg">
           <a class="nav-link " href="" data-toggle="dropdown">
             <span class="material-icons">search</span>
             <p>Find</p>
