@@ -38,20 +38,22 @@
           </ul>
         </li>
       </ul>
-      {% if request.session.fname %}
+      {% if request.session.email %}
       <ul class="navbar-nav ml-auto">
         <li class="nav-item"><a class="nav-link" href="#">
           <span class="material-icons">shopping_cart</span>
-          <p> Cart (10) </p>
+          <p> Cart ({{ request.session.count_cart  }}) </p>
         </a>
         </li>
-        <span class="avatar"></span>
+        <span class="avatar">
+          <img src="{{ request.session.image }}" alt="display pic" >
+        </span>
         <li class="nav-item dropdown ">
           <a class="nav-link  " href="#" data-toggle="dropdown">
-            <p style="display: inline; color:white;"> Kevin Thoriya </p> </a>
+            <p style="display: inline; color:white;"> {{ request.session.fname }} </p> </a>
           <ul class="dropdown-menu ">
-            <li><a class="dropdown-item" href="#"> <span class="material-icons">person_outline</span> Profile </a></li>
-            <li><a class="dropdown-item" href="#"> <span class="material-icons">airline_seat_flat_angled</span>  LogOut </a></li>
+            <li><a class="dropdown-item" href="{% url 'update_profile_n' %}"> <span class="material-icons green-text">person_outline</span> Profile </a></li>
+            <li><a class="dropdown-item" href="#"> <span class="material-icons green-text">airline_seat_flat_angled</span>  LogOut </a></li>
           </ul>
         </li>
       </ul>

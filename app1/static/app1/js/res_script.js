@@ -1,5 +1,19 @@
 console.log("aasdsas");
 $(document).ready(function (e) {
+    $(document).on('click','.image_field_hover',(e)=>{
+        $(e.target).siblings('input').click();
+    })
+    $(document).on('change','input[data-input="image"]',(e)=>{
+        var input = e.currentTarget;
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $(input).siblings('.image_field_img').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    })
+    
     $(document).on('click','.dropdown-item-option',(e)=>{
         var ele = $(e.target)
         var data_for = ele.attr('data-traget'),

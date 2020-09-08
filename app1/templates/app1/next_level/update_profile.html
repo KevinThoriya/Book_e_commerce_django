@@ -1,0 +1,28 @@
+{% extends 'app1/next_level/base.html' %}
+{% block title %} YK - Home {% endblock %}
+{% block body %}
+
+  {% include 'app1/next_level/conponents/navbar.html' with home='active' %}
+
+  <center>
+  <h1 class="green-text mt-5">
+    Update Profile - {{ request.session.fname}} 
+  </h1>
+  <div class="row w-100 mt-5">
+    <form action="" class="mt-5">
+        <div class="col-lg-4">
+          <div class="image_field_div avatar-big">
+            <img src="{{ request.session.image}}" class="image_field_img" alt="" width="400" height="400">
+            <input type="file" name="profile_pic" id="profile_pic" data-input="image" class="d-none">
+            <div class="image_field_hover "> 
+              <span class="material-icons mr-2">edit</span> Edit
+            </div>
+          </div>
+        </div> 
+    </form>
+  </div>
+</center>
+
+  {% include 'app1/next_level/conponents/fotter.html' %}
+
+{% endblock %}

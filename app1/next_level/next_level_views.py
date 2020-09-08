@@ -3,9 +3,28 @@ from app1.models import Contact, Register, Book, Cart, Wishlist, Order_details, 
 from django.views.decorators.csrf import csrf_exempt
 from django.template import loader
 from django.templatetags.static import static
+
 import time
 import json
 
+
+# seprate decorator 
+def checkLogin(func):
+  def wrapper(request):       # x is parameter which is passed in func
+    if not request.session.get('email'):
+        return login_signup(request)
+    else:
+        return func(request)
+  return wrapper
+
+
+
+
+
+
+
+
+# main controller begins here
 def index(request):
     return render(request,'app1/next_level/index.html')
 
@@ -46,3 +65,27 @@ def book_filter(request):
     for i in range(0,10):
         rendering_div += template.render(product_dic,request)
     return HttpResponse(json.dumps({'result': rendering_div}))
+
+
+
+
+# Ajax Loading
+def login(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        if email and password:
+            user = Register.objects.get(email=email, pas=password).first()
+            print(user.name)
+
+@checkLogin
+def update_profile(request):
+    return render(request,'app1/next_level/update_profile.html')
+
+
+
+
+
+
+
+

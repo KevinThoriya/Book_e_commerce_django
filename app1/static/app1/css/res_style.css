@@ -78,6 +78,25 @@ li.nav-item.active > a.nav-link > p{
     border-radius: 50%;
     background-color: var(--text-color2);
     border: 3px solid white;
+    overflow: hidden;
+}
+.avatar > img{
+    width: 60px;
+    height: 60px;
+    transform: translate('-3px','-3px');
+}
+.avatar-big{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: var(--text-color2);
+    border: 10px solid #a7d129;
+    overflow: hidden;
+}
+.avatar-big > img{
+    width: 400px;
+    height: 400px;
+    transform: translate('-3px','-3px');
 }
 .offer-banner{
     margin-top: 20px;
@@ -775,8 +794,26 @@ p {
 .product-main-div > * {
     margin-top: 10px;
 }
-
-
+.image_field_div{
+    position: relative;
+}
+.image_field_hover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #a7d12977;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    display: none;
+    cursor: pointer;
+}
+.image_field_div:hover > .image_field_hover{
+    display: flex;
+}
 
 
 

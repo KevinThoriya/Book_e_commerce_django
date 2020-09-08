@@ -310,12 +310,12 @@ def login(request):
         try:
             user = Register.objects.get(email=email, pas=pas)
             if user.status == 'active' and user.account_type == 'seller':
-                request.session['fname'] = user.fname
+                request.session['fname'] = user.fname + ' ' + user.lname
                 request.session['email'] = user.email
                 request.session['image'] = user.user_image.url
                 return render(request, 'app1/seller_index.html', {'user': user})
             elif user.status == 'active' and user.account_type == 'user':
-                request.session['fname'] = user.fname
+                request.session['fname'] = user.fname + ' ' + user.lname
                 request.session['email'] = user.email
                 request.session['image'] = user.user_image.url
                 user1 = Register.objects.get(email=request.session['email'])
