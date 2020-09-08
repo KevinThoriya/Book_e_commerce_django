@@ -44,7 +44,17 @@ def services(request):
 def login_signup(request):
     return render(request,'app1/next_level/login_signup.html')
 
+def login(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        if email and password:
+            user = Register.objects.get(email=email, pas=password).first()
+            print(user.name)
 
+@checkLogin
+def update_profile(request):
+    return render(request,'app1/next_level/update_profile.html')
 
 # other ajax requests 
 def product_view(request):
@@ -69,18 +79,7 @@ def book_filter(request):
 
 
 
-# Ajax Loading
-def login(request):
-    if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        if email and password:
-            user = Register.objects.get(email=email, pas=password).first()
-            print(user.name)
 
-@checkLogin
-def update_profile(request):
-    return render(request,'app1/next_level/update_profile.html')
 
 
 
