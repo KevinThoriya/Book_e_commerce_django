@@ -10,7 +10,7 @@ import json
 
 # seprate decorator 
 def checkLogin(func):
-  def wrapper(request):       # x is parameter which is passed in func
+  def wrapper(request):
     if not request.session.get('email'):
         return login_signup(request)
     else:
