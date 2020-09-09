@@ -86,16 +86,16 @@ li.nav-item.active > a.nav-link > p{
     transform: translate('-3px','-3px');
 }
 .avatar-big{
-    width: 400px;
-    height: 400px;
+    width: 375px;
+    height: 375px;
     border-radius: 50%;
     background-color: var(--text-color2);
     border: 10px solid #a7d129;
     overflow: hidden;
 }
 .avatar-big > img{
-    width: 400px;
-    height: 400px;
+    width: 375px;
+    height: 375px;
     transform: translate('-3px','-3px');
 }
 .offer-banner{
@@ -814,11 +814,64 @@ p {
 .image_field_div:hover > .image_field_hover{
     display: flex;
 }
-
-
-
-
-
+.update_profile{
+    border: 0;
+    font-size: 30px;
+    color: #3e432e;
+    
+}
+.form-group > input{
+    text-align: center;
+    outline: 1px;
+    border-radius: 10px;
+    background: rgb(240,255,240);
+}
+.form-group > label {
+    font-family: 'Allerta Stencil', sans-serif;
+    color: #a7d129;
+    font-size: x-large;
+}
+.title-update-profile{
+    font-family: 'Allerta Stencil', sans-serif;
+    text-transform: uppercase;
+}
+.check_account_type{
+    background-color: #3e432e;
+    justify-content: center;
+    border-radius: 20px;
+    margin: auto 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    opacity: .5;
+}
+.check_account_type_active{
+    opacity: 1;
+    box-shadow: 8px 10px 15px -5px rgba(0,0,0,0.7);
+}
+.profile_submit{
+    background-color: #a7d129;
+    justify-content: center;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    color: #3e432e;
+    letter-spacing: 5px;
+    font-family: 'Allerta Stencil', sans-serif;
+    text-transform: uppercase; 
+    border: 0;
+    box-shadow: 8px 10px 15px -5px rgba(0,100,0,0.7);
+    font-weight: 900;
+}
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 
 

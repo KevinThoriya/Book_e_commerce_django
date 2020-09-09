@@ -1,5 +1,6 @@
 console.log("aasdsas");
 $(document).ready(function (e) {
+    //universal
     $(document).on('click','.image_field_hover',(e)=>{
         $(e.target).siblings('input').click();
     })
@@ -13,7 +14,26 @@ $(document).ready(function (e) {
             reader.readAsDataURL(input.files[0]);
         }
     })
+
+
+
+    // specific profile page
+    $(document).on('click','.form-check-label',(e)=>{
+        var ele = $(e.target);
+        var input = $(ele.find('input'));
+        input.attr("checked", !input.attr("checked"));
+        ele.toggleClass('check_account_type_active');
+        if( $('.profile_submit').hasClass('d-none')) $('.profile_submit').removeClass('d-none'); 
+    })
+    // specific profile page
+    $(document).on('change','.update_profile',(e)=>{
+
+        if( $('.profile_submit').hasClass('d-none')) 
+            $('.profile_submit').removeClass('d-none'); 
+    });
     
+
+    // books list page filter 
     $(document).on('click','.dropdown-item-option',(e)=>{
         var ele = $(e.target)
         var data_for = ele.attr('data-traget'),

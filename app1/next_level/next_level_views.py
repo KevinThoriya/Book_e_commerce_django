@@ -54,7 +54,12 @@ def login(request):
 
 @checkLogin
 def update_profile(request):
-    return render(request,'app1/next_level/update_profile.html')
+    user = Register.objects.filter(email=request.session.get('email')).first()
+    return render(request,'app1/next_level/update_profile.html',{'user':user})
+
+
+
+
 
 # other ajax requests 
 def product_view(request):
