@@ -53,6 +53,10 @@
             <p style="display: inline; color:white;"> {{ request.session.fname }} </p> </a>
           <ul class="dropdown-menu ">
             <li><a class="dropdown-item" href="{% url 'update_profile_n' %}"> <span class="material-icons green-text">person_outline</span> Profile </a></li>
+            {% if user.account_type == 'seller' %}
+              <li><a class="dropdown-item" href="{% url 'manage_book_order_n' %}"> <span class="material-icons green-text">settings</span>Manage Book and Orders </a></li>
+            {% endif %}
+            <li><a class="dropdown-item" href="{% url 'view_my_order_n' %}"> <span class="material-icons green-text">person_outline</span> My Orders </a></li>
             <li><a class="dropdown-item" href="#"> <span class="material-icons green-text">airline_seat_flat_angled</span>  LogOut </a></li>
           </ul>
         </li>

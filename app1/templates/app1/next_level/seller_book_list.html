@@ -1,0 +1,21 @@
+{% extends 'app1/next_level/base.html' %}
+{% block title %} YK - Home {% endblock %}
+{% block body %}
+
+  {% include 'app1/next_level/conponents/navbar.html' with home='active' %}
+{% load customtag %}
+  <center>
+    <h1 class="green-text mt-5 title-update-profile">
+        Manage My Books & Orders 
+    </h1>
+    <div class="black-text row w-100 mt-5">
+        Books :
+        <table>
+            
+        </table>
+    </div>
+</center>
+
+  {% include 'app1/next_level/conponents/fotter.html' %}
+
+{% endblock %}

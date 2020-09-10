@@ -41,3 +41,15 @@ Make a controller that returns a cuttenly running offer
 
 once this is down have to make a model for storing reviews of products
 details will be coming soon...
+
+model for testimonial of books 
+
+
+is there any model for order 
+
+
+
+design :
+- list view of my book 
+- form view of my book 
+- list view of orders with address

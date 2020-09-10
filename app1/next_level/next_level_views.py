@@ -23,28 +23,45 @@ def checkLogin(func):
 
 
 
+# get common values 
+def get_common_values(request):
+    values = {}
+    if request.session.get('email'):
+        user = Register.objects.filter(email=request.session.get('email')).first()
+        values.update({'user':user})
+    return  values
+
+
+
 
 # main controller begins here
 def index(request):
-    return render(request,'app1/next_level/index.html')
+    context = get_common_values(request)
+    return render(request,'app1/next_level/index.html',context)
 
 def product_detail(request):
-    return render(request,'app1/next_level/product_detail_page.html')
+    context = get_common_values(request)
+    return render(request,'app1/next_level/product_detail_page.html',context)
 
 def about_us(request):
-    return render(request,'app1/next_level/about.html')
+    context = get_common_values(request)
+    return render(request,'app1/next_level/about.html',context)
 
 def book_list(request):
+    context = get_common_values(request)
     # Sorting, filtering of book done here based on passing pera 
-    return render(request,'app1/next_level/book_list.html')
+    return render(request,'app1/next_level/book_list.html',context)
 
 def services(request):
-    return render(request,'app1/next_level/services.html')
+    context = get_common_values(request)
+    return render(request,'app1/next_level/services.html',context)
 
 def login_signup(request):
-    return render(request,'app1/next_level/login_signup.html')
+    context = get_common_values(request)
+    return render(request,'app1/next_level/login_signup.html',context)
 
 def login(request):
+    context = get_common_values(request)
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
@@ -54,19 +71,34 @@ def login(request):
 
 @checkLogin
 def update_profile(request):
-    user = Register.objects.filter(email=request.session.get('email')).first()
-    return render(request,'app1/next_level/update_profile.html',{'user':user})
+    context = get_common_values(request)
+    return render(request,'app1/next_level/update_profile.html',context)
+
+@checkLogin
+def manage_product_order(request):
+    context = get_common_values(request)
+    return render(request,'app1/next_level/seller_book_list.html',context)
 
 
+@checkLogin
+def manage_edit_book(request):
+    context = get_common_values(request)
+    return render(request,'app1/next_level/edit_product.html',context)
 
+@checkLogin
+def my_order(request):
+    context = get_common_values(request)
+    return  render(request,'app1/next_level/my_order.html',context)
 
 
 # other ajax requests 
 def product_view(request):
-    return render(request,'app1/next_level/conponents/product_detail_view.html')
+    context = get_common_values(request)
+    return render(request,'app1/next_level/conponents/product_detail_view.html',context)
     
 def sign_up_form(request):
-    return render(request,'app1/next_level/conponents/signup.html')
+    context = get_common_values(request)
+    return render(request,'app1/next_level/conponents/signup.html',context)
 
 @csrf_exempt
 def book_filter(request):
