@@ -872,8 +872,47 @@ p {
     -ms-user-select: none;
     user-select: none;
 }
-
-
+.book_list_tr{
+    margin: 0px 10px;
+}
+.book_list_tr tr{
+    display: flex;
+    padding: 10px auto;
+}
+.book_list_tr th,.book_list_tr td{
+    padding: 20px;
+} 
+.book_list_tr td{
+    cursor: pointer;
+}
+.book_list_tr th{
+    background : #a7d12966
+}
+.book_list_tr *{
+    text-align: inherit;
+    color: #616f39;
+    text-align: center;
+}
+.add-new-button{
+    width: 200px;
+    background-color: #23ba67;
+    border: 0;
+    border-radius: 5px;
+    margin: 10px 30px;
+}
+.table_row1{
+    background: #a7d12922;
+}
+.table_row2{
+    background : #23ba6722;
+}
+.table_row:hover {
+    background : #3e432e22;
+    transition: all .15s ease-out;
+}
+.table_row .material-icons {
+    cursor: pointer;
+}
 
 
 

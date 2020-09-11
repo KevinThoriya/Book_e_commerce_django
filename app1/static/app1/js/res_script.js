@@ -15,8 +15,11 @@ $(document).ready(function (e) {
         }
     })
 
-
-
+    // manage book list page
+    
+    $(document).on('click','#book-table-view tr',(e)=>{
+        window.location = $(e.target).parents('tr').attr('edit-book-url');
+    });
     // specific profile page
     $(document).on('click','.form-check-label',(e)=>{
         var ele = $(e.target);

@@ -2,16 +2,43 @@
 {% block title %} YK - Home {% endblock %}
 {% block body %}
 
-  {% include 'app1/next_level/conponents/navbar.html' with home='active' %}
+  {% include 'app1/next_level/conponents/navbar.html' with profile='active' %}
 {% load customtag %}
   <center>
     <h1 class="green-text mt-5 title-update-profile">
         Manage My Books & Orders 
     </h1>
     <div class="black-text row w-100 mt-5">
-        Books :
-        <table>
-            
+        <h3 class="black-text w-100 "> Books :</h3><br>
+        <div class="w-100">
+          <button class=" btn-lg pull-left add-new-button "> Add New Book </button>
+        </div><hr>
+        <table class="w-100 book_list_tr" >
+          <tbody id="book-table-view">
+            <tr>
+              <th style="flex:.09">No.</th>
+              <th style="flex:1">Name</th>
+              <th style="flex:.3">Price</th>
+              <th style="flex:.2">Remaining Books</th>
+              <th style="flex:.3">Profit</th>
+              <th style="flex:.2">Ratings</th>
+              <th style="flex:.12">Active</th>
+              <th style="flex:.09">D</th>
+            </tr>
+            {% for book in books %}
+              <tr class="table_row {% cycle 'table_row1' 'table_row2' %}" data-id="{{book}}" edit-book-url="{% url 'manage_edit_book_n' %}">
+                <td style="flex:.09">{{book}}</td>
+                <td style="flex:1">Pro Scala Seed React with Play Framework By Kevin Thoriya</td>
+                <td style="flex:.3" >$ 13.00</td>
+                <td style="flex:.2" >10 / 100</td>
+                <td style="flex:.3" >$ 1270.00</td>
+                <td style="flex:.2" class="center-child">4.2 <span class="ml-2 material-icons">favorite</span></td> 
+                <td style="flex:.12"><a href="{% url 'product_detail_n' %}"><span class="material-icons" >visibility</span> </a></td> 
+                <td style="flex:.09"><a href="{% url 'product_detail_n' %}"><span class="material-icons" >delete</span> </a> </td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
         </table>
     </div>
 </center>
