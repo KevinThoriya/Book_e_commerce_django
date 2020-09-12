@@ -17,6 +17,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
+    overflow-x: hidden;
 
 }
 .navbar-brand  {
@@ -913,6 +914,27 @@ p {
 .table_row .material-icons {
     cursor: pointer;
 }
+.book_profile{
+    width: 375px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0px;
+    margin: auto;
+    height: auto;
+    border: 3px solid #a7d129;
+}
+.book_profile img{
+    object-fit: scale-down;
+}
+.edit_book-input{
+    color: #3e432e;
+    border : 0;
+    height: 50px;
+}
+.just-space-between{
+    justify-content: space-between;
+    display: flex;
+}
 
 
 
@@ -941,6 +963,7 @@ p {
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
   }
   
   /* Track */

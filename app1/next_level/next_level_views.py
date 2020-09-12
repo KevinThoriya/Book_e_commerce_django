@@ -84,6 +84,20 @@ def manage_product_order(request):
 @checkLogin
 def manage_edit_book(request):
     context = get_common_values(request)
+
+    context.update({
+        'image_url' :  static('app1/images/next_level/react_demo.png'),
+        'book_short_name' : 'Book Short Name',
+        'book_name' : 'Pro Scala Seed React with Play Framework By Kevin Thoriya',
+        'book_headline' : 'With full of Great Content about Play Framework to make you Hero from Zero in Scala as Well as React',
+        'long_disc' : """Use play framework to develop the application backend/services and frontend using React Create App, all in a totally integrated workflow and single unified console. This approach will deliver perfect development experience without CORS hassle. Fork or clone the seed project of your language preference and get started:
+                        Are you building a web application with React? React is super cool! We all know that. But are you looking for a good backend framework to pair with it? No clue on how to get started without going through the pain of setting up things from scratch. Doesn’t matter whether you are building a production ready application or a proof of concept project, You are at the correct place, let’s dive into detail.
+                        """,
+        'price' : '13.00',
+        'book_type' : 'Coding, Scala Programing, React, Seed, Play Framework',
+        'short_headline' : 'some product text comes here about book we can say',
+
+    })
     return render(request,'app1/next_level/seller_book_edit.html',context)
 
 @checkLogin

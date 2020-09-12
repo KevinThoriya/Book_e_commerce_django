@@ -8,8 +8,73 @@
   <center>
       <h1 class="green-text mt-5">
           Edit your Book
+          <div class="w-100">
+            <div class="just-space-between">
+              <button class=" btn-lg  add-new-button "> Add New Book </button>
+              <div>
+                <button class=" btn-lg  add-new-button "> Live Preview (on Homepage) </button>
+                <button class=" btn-lg  add-new-button "> Live Preview (on main book page) </button>
+              </div>
+            </div>
+          </div>
       </h1>
-  </center>
+          
+      <hr>
+      <form action="">
+          <div class="form-row">
+              <div class="col-sm-4 w-100">
+                <div class="image_field_div book_profile">
+                    <img src="{{ image_url }}" class="image_field_img" alt="" width="375">
+                    <input type="file" name="profile_pic" id="profile_pic" data-input="image" class="d-none update_profile">
+                    <div class="image_field_hover "> 
+                      <span class="material-icons mr-2">edit</span> Edit
+                    </div>
+                </div>
+                
+              </div>
+              <div class="ml-5 form-group col-lg-7">
+                <div class="w-100">
+                  <div class="form-group col-md-12">
+                    <label class="black-text">Book Name : </label>
+                    <input type="text" name="book_name" class="edit_book-input w-100" value='{{ book_name }}'>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label class="black-text">Short Book Name : </label>
+                    <input type="text" name="book_short_name" class="edit_book-input w-100" value='{{ book_short_name }}'>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label class="black-text">Book HeadLine : </label>
+                    <input type="text" name="book_headline" class="edit_book-input w-100" value='{{ book_headline }}'>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label class="black-text">Book Short HeadLine : </label>
+                    <input type="text" name="short_headline" class="edit_book-input w-100" value='{{ short_headline }}'>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label class="black-text">Book Type : </label>
+                    <input type="text" name="book_type" class="edit_book-input w-100" value='{{ book_type }}'>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label class="black-text">Price : </label>
+                    <input type="text" name="price" class="edit_book-input w-100" value='{{ price }}'>
+                  </div>
+                  <div class="form-group col-md-12">
+                    <label class="black-text">long Description : </label>
+                    <input type="text" name="long_disc" class="edit_book-input w-100" value='{{ long_disc }}'>
+                  </div>
+                  <button class="profile_submit "> Submit Update </button>
+
+              </div>
+                
+                  
+            </div>
+          </div>
+      </form>
+  
+    </center>
+
+
+
   {% include 'app1/next_level/conponents/fotter.html' %}
 
 {% endblock %}
