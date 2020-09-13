@@ -935,7 +935,12 @@ p {
     justify-content: space-between;
     display: flex;
 }
-
+.fancybox-content {
+    max-width  : 90%;
+    max-height : 90%;
+    margin: 0;
+    padding: 0;
+}
 
 
 

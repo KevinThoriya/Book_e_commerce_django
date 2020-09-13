@@ -4,7 +4,7 @@
   <div class="thumb-wrapper">
     <span class="Product__new">New</span>
     <div class="product__image">
-      <img src="{{ product_image|ifUrlelseStatic:'app1/images/next_level/demo.jpg' }}" class="img-fluid" alt="">
+      <img src="{{ image_url|ifUrlelseStatic:'app1/images/next_level/demo.jpg' }}" class="img-fluid" alt="">
       <div class="view-more-cont">
         <a data-fancybox data-type="ajax" data-src="{% url 'product_detail_view_n'%}" href="javascript:;">
           <div data-id="{{id}}" class="btn-lg view-more-button view_more">View More</div>
@@ -13,10 +13,10 @@
     </div>
     <div class="product__name">
       <a href="{% url 'product_detail_n' %}">
-        <h4 class="product__name_h4">Apple iPad</h4>
+        <h4 class="product__name_h4">{{book_short_name|default:"Book to use Book"}}</h4>
       </a> 
-      <p class="product__line">some product text comes here about book we can say</p>
-      <p class="product__price"><strike>$400.00</strike> <span>$369.00</span></p>
+      <p class="product__line">{{ short_headline|default:"some product text comes here about book we can say" }}</p>
+      <p class="product__price"><strike>${{ price|default:"400.00" }}</strike> <span>$369.00</span></p>
       <div class="star-rating">
         <ul class="star_rating_list">
           <li class="rate_star"><span class="material-icons">favorite</span></li>

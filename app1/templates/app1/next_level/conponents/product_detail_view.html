@@ -9,8 +9,8 @@
             </div>
             <div class="col-sm-6 col-xs-12 product-view__details">
                 <h6>New</h6>
-                <h1>Pro Scala Seed React with Play Framework By Kevin Thoriya</h1>
-                <h5>With full of Great Content about Play Framework to make you Hero from Zero in Scala as Well as React</h5>
+                <h1>{{ book_name|default:'Pro Scala Seed React with Play Framework By Kevin Thoriya'}}</h1>
+                <h5>{{ book_headline|default:'With full of Great Content about Play Framework to make you Hero from Zero in Scala as Well as React'}}</h5>
                 <div class="review-rate">
                     <h5 class="black-text">Rate :</h5>
                     <ul class="star_rating_list">
@@ -23,14 +23,12 @@
                       <h5 class="black-text">Read 57 Review <a href="" class="black-text">  |  write your review</a></h5>
                 </div>
                 <p class="product_main__more_disc">
-                    Use play framework to develop the application backend/services and frontend using React Create App, all in a totally integrated workflow and single unified console. This approach will deliver perfect development experience without CORS hassle. Fork or clone the seed project of your language preference and get started:
-                    <br>
-                    Are you building a web application with React? React is super cool! We all know that. But are you looking for a good backend framework to pair with it? No clue on how to get started without going through the pain of setting up things from scratch. Doesn’t matter whether you are building a production ready application or a proof of concept project, You are at the correct place, let’s dive into detail.
+                    {{ long_disc|default:" Use play framework to develop the application backend/services and frontend using React Create App, all in a totally integrated workflow and single unified console. This approach will deliver perfect development experience without CORS hassle. Fork or clone the seed project of your language preference and get started.<br> Are you building a web application with React? React is super cool! We all know that. But are you looking for a good backend framework to pair with it? No clue on how to get started without going through the pain of setting up things from scratch. Doesn’t matter whether you are building a production ready application or a proof of concept project, You are at the correct place, let’s dive into detail."}}
                 </p>
                 <h6><strong class="black-text">Book Type :</strong>
-                    Coding, Scala Programing, React, Seed, Play Framework
+                    {{ book_type|default:"Coding, Scala Programing, React, Seed, Play Framework"}}
                 </h6>
-                <h3>$ 13.00</h3>
+                <h3>$ {{ price|default:"13.00"}}</h3>
                 <span class="black-text ">
                     Qty .
                     <div class="product_main__qty">

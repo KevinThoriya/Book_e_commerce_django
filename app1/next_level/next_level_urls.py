@@ -17,5 +17,6 @@ urlpatterns = [
 ]+[
     path(base_url + 'product_view/',views.product_view,name="product_detail_view_n"),
     path(base_url + 'sign_up_form/',views.sign_up_form,name="sign_up_form_n"),
-    path(base_url + 'books/filter/', views.book_filter, name="book_filter_n")
+    path(base_url + 'books/filter/', views.book_filter, name="book_filter_n"),
+    path(base_url + 'manage/books/preview/', views.preview_book, name="preview_book_n"),
 ]

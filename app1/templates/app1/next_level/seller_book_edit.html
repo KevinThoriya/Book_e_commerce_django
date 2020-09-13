@@ -12,20 +12,20 @@
             <div class="just-space-between">
               <button class=" btn-lg  add-new-button "> Add New Book </button>
               <div>
-                <button class=" btn-lg  add-new-button "> Live Preview (on Homepage) </button>
-                <button class=" btn-lg  add-new-button "> Live Preview (on main book page) </button>
+                <button id="preview_homepage_book" class=" btn-lg  add-new-button "> Live Preview (on Homepage) </button>
+                <button id="preview_book_page" class=" btn-lg  add-new-button "> Live Preview (on main book page) </button>
               </div>
             </div>
           </div>
       </h1>
           
       <hr>
-      <form action="">
+      <form id="edit-book-form" action="">
           <div class="form-row">
               <div class="col-sm-4 w-100">
                 <div class="image_field_div book_profile">
-                    <img src="{{ image_url }}" class="image_field_img" alt="" width="375">
-                    <input type="file" name="profile_pic" id="profile_pic" data-input="image" class="d-none update_profile">
+                    <img src="{{ image_url }}" id="image_url_book" class="image_field_img" alt="" width="375">
+                    <input type="file" preview-ele="#image_url_book" name="image_url" id="image_url" data-input="image" class="d-none edit_book-input">
                     <div class="image_field_hover "> 
                       <span class="material-icons mr-2">edit</span> Edit
                     </div>
@@ -70,7 +70,10 @@
             </div>
           </div>
       </form>
-  
+
+      <div class="" id="preview-ajax-div">
+        
+      </div>
     </center>
 
 

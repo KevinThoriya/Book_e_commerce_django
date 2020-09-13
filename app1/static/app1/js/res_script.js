@@ -14,6 +14,18 @@ $(document).ready(function (e) {
             reader.readAsDataURL(input.files[0]);
         }
     })
+    function get_data_from_form(form){
+        var data = {};
+        form.find('input').map((index,input)=>{
+            if( $(input).attr('type') == 'file')
+               data[$(input).attr('name')] = $($(input).attr('preview-ele')).attr('src');
+            if( $(input).attr('type') == 'text' || $(input).attr('type') == 'number' || $(input).attr('type') == 'password' || $(input).attr('type') == 'email' )
+                data[$(input).attr('name')] = $(input).val();
+        });
+        return data;
+    }
+
+
 
     // manage book list page
     
@@ -59,5 +71,32 @@ $(document).ready(function (e) {
                 }
             });
         }
-    })
+    });
+
+
+    // edit a book page 
+    $(document).on('click','#preview_book_page,#preview_homepage_book',(e)=>{
+        var btn = $(e.target);
+        var data = get_data_from_form($('#edit-book-form'));
+        data['preview_for'] = btn.attr('id') == 'preview_book_page' ? 'full_page' : 'home_page';
+        console.log(data['preview_for']);
+        $.ajax({
+            url : '/next_level/manage/books/preview/',
+            data : data,
+            dataType : 'json',
+            type: 'POST',
+            success: function (response) {
+                if(response.result)
+                $('#preview-ajax-div').html(response.result);
+                $.fancybox.open({
+                    src  : '#preview-ajax-div',
+                    // type : 'iframe',
+                });
+            },
+            error: function(xhr, status) {
+                $('.product-main-div').html('Server Error.Our genius Engineer are fixing it.');
+            }
+        });
+
+    });
 })

@@ -96,7 +96,6 @@ def manage_edit_book(request):
         'price' : '13.00',
         'book_type' : 'Coding, Scala Programing, React, Seed, Play Framework',
         'short_headline' : 'some product text comes here about book we can say',
-
     })
     return render(request,'app1/next_level/seller_book_edit.html',context)
 
@@ -123,20 +122,32 @@ def book_filter(request):
     rendering_div = ''
     product_dic = {}
     if not cate == 'All Categories':
-        product_dic.update({'product_image':static('app1/images/next_level/'+cate.lower()+'_demo.png')})
+        product_dic.update({'image_url':static('app1/images/next_level/'+cate.lower()+'_demo.png')})
     for i in range(0,10):
         rendering_div += template.render(product_dic,request)
     return HttpResponse(json.dumps({'result': rendering_div}))
 
 
-
-
-
-
-
-
-
-
-
-
-
+@csrf_exempt
+def preview_book(request):
+    template = loader.get_template('app1/next_level/conponents/' + ('product_detail_view.html' if request.POST.get('preview_for') == 'full_page' else 'product_view.html'))
+    context = get_common_values(request)
+    context.update({
+        'image_url' : request.POST.get('image_url'),
+        'book_short_name' : request.POST.get('book_short_name'),
+        'book_name' : request.POST.get('book_name'),
+        'book_headline' : request.POST.get('book_headline'),
+        'long_disc' : request.POST.get('long_disc'),
+        'price' : request.POST.get('price'),
+        'book_type' : request.POST.get('book_type'),
+        'short_headline' : request.POST.get('short_headline'),
+    })
+    rendering_div = ''
+    if request.POST.get('preview_for') == 'full_page':
+        rendering_div = template.render(context,request )
+    else : 
+        rendering_div = '<div class="row wid-hei-90">'
+        for i in range(0,4):
+            rendering_div += template.render(context,request)
+        rendering_div += '</div'
+    return HttpResponse(json.dumps({'result': rendering_div}))
