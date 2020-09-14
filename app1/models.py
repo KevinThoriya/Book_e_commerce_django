@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from datetime import datetime,timedelta
+from django.db.models import Q
 
 
 class Contact(models.Model):
@@ -116,8 +117,10 @@ class Offer_banner(models.Model):
     payment_price = models.IntegerField(max_length=10)
     payment = models.BooleanField(default=0)
 
+    def __str__(self):
+        return self.offer_main_title
 
     @staticmethod
-    def max_payment():
+    def running_offers():
         return Offer_banner.objects.filter(payment=True).order_by('-payment_price')[:5]
 

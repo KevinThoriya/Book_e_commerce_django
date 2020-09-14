@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
-from app1.models import Contact, Register, Book, Cart, Wishlist, Order_details, Transaction
+from app1.models import Contact, Register, Book, Cart, Wishlist, Order_details, Transaction, Offer_banner
 from django.views.decorators.csrf import csrf_exempt
 from django.template import loader
 from django.templatetags.static import static
@@ -37,6 +37,10 @@ def get_common_values(request):
 # main controller begins here
 def index(request):
     context = get_common_values(request)
+    context.update({
+        'offers' : Offer_banner.running_offers()
+    })
+    print(context)
     return render(request,'app1/next_level/index.html',context)
 
 def product_detail(request):

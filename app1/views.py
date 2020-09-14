@@ -815,6 +815,3 @@ def my_orders(request):
     orders = Order_details.objects.filter(order_email=user.email)
     return render(request, 'app1/orders.html', {'orders': orders})
 
-def my_ck(request):
-    pay = Offer_banner.max_payment()
-    return render(request,'app1/abc.html',{'pay':pay})

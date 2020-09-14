@@ -5,7 +5,36 @@
     <li data-target="#demo" data-slide-to="2"></li>
   </ul>
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    {% for offer in offers %}
+
+    <div class="carousel-item {% if forloop.first %} active {% endif %}">
+      <div class="row offer-banner__inside">
+        <div class="col-xs-12 col-md-6 ">
+          <img class="offer-banner__image" src="{{ offer.offer_image.url }}" alt="Los Angeles" width="1100" height="500">
+        </div>
+        <div class="col-xs-12 col-md-6 offer-banner__right">
+          <div class="offer-banner__right__inside">
+            <div class="banner__upper">
+              online exclusives
+            </div>
+            <div class="banner__middle">
+              {{ offer.offer_main_title }}
+            </div>
+            <div class="banner__down">
+              {{ offer.offer_sub_title }}
+            </div>
+            <div class="banner__buttons">
+            <a href="{{offer.offer_redirection_url }}"><div class="btn-lg banner__shop_button">Shop Now</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+
+    <div class="carousel-item ">
       <div class="row offer-banner__inside">
         <div class="col-xs-12 col-md-6 ">
           <img class="offer-banner__image" src="https://thewritelife.com/wp-content/uploads/2019/08/How-to-format-a-book.jpg" alt="Los Angeles" width="1100" height="500">
