@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Contact, Register, Book, Cart, Wishlist, Order_details, Transaction
+from .models import Contact, Register, Book, Cart, Wishlist, Order_details, Transaction,Offer_banner
 import random
 from django.core.mail import send_mail
 from django.conf import settings
@@ -814,3 +814,7 @@ def my_orders(request):
     user = Register.objects.get(email=request.session['email'])
     orders = Order_details.objects.filter(order_email=user.email)
     return render(request, 'app1/orders.html', {'orders': orders})
+
+def my_ck(request):
+    pay = Offer_banner.max_payment()
+    return render(request,'app1/abc.html',{'pay':pay})

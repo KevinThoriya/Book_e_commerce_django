@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from datetime import datetime,timedelta
 
 
 class Contact(models.Model):
@@ -36,7 +37,8 @@ class Book(models.Model):
     book_name = models.CharField(max_length=30)
     book_price = models.CharField(max_length=10)
     book_author = models.CharField(max_length=30)
-    book_category = models.CharField(max_length=30, choices=CHOICES, default='')
+    book_category = models.CharField(
+        max_length=30, choices=CHOICES, default='')
     book_desc = models.TextField()
     book_image = models.ImageField(upload_to='images/')
     book_status = models.CharField(max_length=30, default="active")
@@ -88,13 +90,34 @@ class Transaction(models.Model):
                                 on_delete=models.CASCADE)
     made_on = models.DateTimeField(auto_now_add=True)
     amount = models.IntegerField()
-    order_id = models.CharField(unique=True, max_length=100, null=True, blank=True)
+    order_id = models.CharField(
+        unique=True, max_length=100, null=True, blank=True)
     checksum = models.CharField(max_length=100, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if self.order_id is None and self.made_on and self.id:
-            self.order_id = self.made_on.strftime('PAY2ME%Y%m%dODR') + str(self.id)
+            self.order_id = self.made_on.strftime(
+                'PAY2ME%Y%m%dODR') + str(self.id)
         return super().save(*args, **kwargs)
 
     def __str__(self):
         return self.made_by.fname
+
+def get_expire():
+    return datetime.today() + timedelta(days=2)
+
+class Offer_banner(models.Model):
+    offer_main_title = models.CharField(max_length=100,null=False)
+    offer_sub_title = models.CharField(max_length=100,null=False)
+    offer_image = models.ImageField(upload_to='images/')
+    offer_redirection_url = models.URLField(null=False)
+    offer_active_date = models.DateField(default=datetime.today)
+    offer_expire_date = models.DateField(default=get_expire)
+    payment_price = models.IntegerField(max_length=10)
+    payment = models.BooleanField(default=0)
+
+
+    @staticmethod
+    def max_payment():
+        return Offer_banner.objects.filter(payment=True).order_by('-payment_price')[:5]
+

@@ -47,6 +47,7 @@ urlpatterns = [
     # path('checkout/', views.checkout, name='checkout'),
     # path("create-payment-intent", views.createpayment, name="create-payment-intent"),
     # path("payment-complete", views.paymentcomplete, name="payment-complete"),
+    path('pay/',views.my_ck,name='payment'),
 
 
 ] + next_level_urls.urlpatterns
