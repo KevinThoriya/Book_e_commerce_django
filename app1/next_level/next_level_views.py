@@ -84,6 +84,14 @@ def manage_product_order(request):
     context.update({ 'books' : [1,2,3,4,5,6,7,8,9] })
     return render(request,'app1/next_level/seller_book_list.html',context)
 
+@checkLogin
+def manage_product_offer(request):
+    context = get_common_values(request)
+    context.update({ 'offers' : Offer_banner.objects.all() })
+    return render(request,'app1/next_level/seller_offer.html',context)
+    
+
+
 
 @checkLogin
 def manage_edit_book(request):

@@ -1,0 +1,46 @@
+{% extends 'app1/next_level/base.html' %}
+{% block title %} YK - Home {% endblock %}
+{% block body %}
+
+  {% include 'app1/next_level/conponents/navbar.html' with profile='active' %}
+{% load customtag %}
+  <center>
+    <h1 class="green-text mt-5 title-update-profile">
+        Manage Or Add Offers  
+    </h1>
+    <p class="black-text">Add your Banner on Home Screen. And Make your product to Reatch out the world. </p>
+    <div class="black-text row w-100 mt-5">
+        <div class="w-100">
+          <button class=" btn-lg pull-left add-new-button "> Add New Offers </button>
+        </div><hr>
+        <table class="w-100 book_list_tr" >
+          <tbody id="book-table-view">
+            <tr>
+              <th style="flex:.09">No.</th>
+              <th style="flex:1">Main Title</th>
+              <th style="flex:.3">Active On</th>
+              <th style="flex:.2">Expire On</th>
+              <th style="flex:.3">payment</th>
+              <th style="flex:.2">Renew Offer</th>
+              <th style="flex:.09">D</th>
+            </tr>
+            {% for offer in offers %}
+              <tr class="table_row {% cycle 'table_row1' 'table_row2' %}" data-id="{{book}}" edit-book-url="{% url 'manage_edit_book_n' %}">
+                <td style="flex:.09">{{offer}}</td>
+                <td style="flex:1">{{ offer.offer_main_title}}</td>
+                <td style="flex:.3" > {{ offer.offer_active_date}} </td>
+                <td style="flex:.2" > {{ offer.offer_expire_date}} </td>
+                <td style="flex:.3" >{% if offer.expire %} <p class="red-text"> Not Done </p> {% else %} <p class="green-text"> Done</p> {% endif %} </td>
+                <td style="flex:.2"><a href="{% url 'product_detail_n' %}"><span class="material-icons" >autorenew</span> </a></td> 
+                <td style="flex:.09"><a href="{% url 'product_detail_n' %}"><span class="material-icons" >delete</span> </a> </td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+    </div>
+</center>
+
+  {% include 'app1/next_level/conponents/fotter.html' %}
+
+{% endblock %}

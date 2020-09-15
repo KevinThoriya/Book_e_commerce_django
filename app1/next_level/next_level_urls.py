@@ -13,6 +13,7 @@ urlpatterns = [
     path(base_url + 'manage/product_and_order/',views.manage_product_order,name="manage_book_order_n"),
     path(base_url + 'my_order/',views.my_order,name="view_my_order_n"),
     path(base_url + 'manage/edit_book/',views.manage_edit_book,name="manage_edit_book_n"),
+    path(base_url + 'manage/offers/',views.manage_product_offer,name="manage_book_offer_n"),
     
 ]+[
     path(base_url + 'product_view/',views.product_view,name="product_detail_view_n"),

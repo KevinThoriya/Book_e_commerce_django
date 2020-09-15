@@ -127,4 +127,4 @@ class Offer_banner(models.Model):
         return active_offer 
        
     # Must Add this in form validation by_yk 
-    # widget = forms.SelectDateWidget(years=range(2020, 2100))
+    # widget = forms.SelectDateWidget(years=range(2020, 2100)) sure YK will add this 
