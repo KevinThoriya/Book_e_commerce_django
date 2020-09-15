@@ -116,11 +116,15 @@ class Offer_banner(models.Model):
     offer_expire_date = models.DateField(default=get_expire)
     payment_price = models.IntegerField(max_length=10)
     payment = models.BooleanField(default=0)
+    expire = models.BooleanField(default=0) 
 
     def __str__(self):
         return self.offer_main_title
 
     @staticmethod
-    def running_offers():
-        return Offer_banner.objects.filter(payment=True).order_by('-payment_price')[:5]
-
+    def running_offers(*args,**kwargs):
+        active_offer = Offer_banner.objects.filter(payment=True,expire=False).order_by('-payment_price')[:5]
+        return active_offer 
+       
+    # Must Add this in form validation by_yk 
+    # widget = forms.SelectDateWidget(years=range(2020, 2100))
