@@ -116,7 +116,7 @@ class Offer_banner(models.Model):
     offer_expire_date = models.DateField(default=get_expire)
     payment_price = models.IntegerField(max_length=10)
     payment = models.BooleanField(default=0)
-    expire = models.BooleanField(default=True) 
+    expire = models.BooleanField(default=False) 
 
     def __str__(self):
         return self.offer_main_title
@@ -127,8 +127,8 @@ class Offer_banner(models.Model):
     
     def save(self, *args, **kw):
             ## your custom date logic to verify if expired or not.
-            if self.offer_expire_date < datetime.datetime.now().date():
-                self.expire = False
+            if self.offer_expire_date < datetime.now().date():
+                self.expire = True
             super(Offer_banner, self).save(*args, **kw)
 
     @staticmethod
