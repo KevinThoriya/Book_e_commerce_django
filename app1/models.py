@@ -129,6 +129,8 @@ class Offer_banner(models.Model):
             ## your custom date logic to verify if expired or not.
             if self.offer_expire_date < datetime.now().date():
                 self.expire = True
+            else:
+                self.expire = False
             super(Offer_banner, self).save(*args, **kw)
 
     @staticmethod
