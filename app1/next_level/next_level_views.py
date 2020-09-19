@@ -163,3 +163,17 @@ def preview_book(request):
             rendering_div += template.render(context,request)
         rendering_div += '</div'
     return HttpResponse(json.dumps({'result': rendering_div}))
+
+
+
+def book_create(request):
+    import app1.utils.get_books as gb
+    get_all_book = gb.getAllBook()
+    for cat in get_all_book.keys():
+        email = cat + '.seller@gmail.com'
+        for book in get_all_book[cat]:
+            try:
+                Book.objects.create(book_name=book['book_name'], book_price=book['book_price'], book_category=cat, book_desc=book['book_desc'], book_author=book['book_author'], book_image_url=book['book_img'],seller_email=email)
+                print('----------------------------Created--------------------------')
+            except Exception as e:
+                print(e,'---------Error-----------Error-----------Error-----------Error------------')

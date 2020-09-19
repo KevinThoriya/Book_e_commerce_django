@@ -20,4 +20,6 @@ urlpatterns = [
     path(base_url + 'sign_up_form/',views.sign_up_form,name="sign_up_form_n"),
     path(base_url + 'books/filter/', views.book_filter, name="book_filter_n"),
     path(base_url + 'manage/books/preview/', views.preview_book, name="preview_book_n"),
+]+ [
+    path(base_url + 'manage/books/book_create/', views.book_create, name="book_create"),
 ]

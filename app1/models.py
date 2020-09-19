@@ -4,6 +4,11 @@ from datetime import datetime,timedelta
 from django.db.models import Q
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
+from django.template.defaultfilters import slugify
+import urllib, os
+from urllib.parse import urlparse
+import urllib.request
+
 
 
 class Contact(models.Model):
@@ -33,9 +38,14 @@ class Register(models.Model):
 
 class Book(models.Model):
     CHOICES = (
-        ('python', 'python'),
-        ('java', 'java'),
-        ('php', 'php')
+        ('JavaScript', 'JavaScript'),
+        ('PHP', 'PHP'),
+        ('ASP_NET', 'ASP_NET'),
+        ('CSS', 'CSS'),
+        ('Rubi', 'Rubi'),
+        ('Compiler', 'Compiler'),
+        ('Python', 'Python'),
+        ('Java', 'Java')
     )
     book_name = models.CharField(max_length=30)
     book_price = models.CharField(max_length=10)
@@ -47,10 +57,28 @@ class Book(models.Model):
     book_status = models.CharField(max_length=30, default="active")
     quantity = models.CharField(default=0, max_length=10)
     seller_email = models.EmailField(default='')
+    website_url = models.SlugField(max_length=200,default='',null=True,blank=True)
+    book_image_url = models.CharField(max_length=300,default='')
+
+    def save(self, *args, **kwargs):
+        if self.book_image_url:
+            file_save_dir = os.path.join(os.path.join(os.path.abspath(os.getcwd()), 'media'),self.book_category)
+            if not os.path.isdir(file_save_dir):
+                os.makedirs(file_save_dir)
+            filename = urlparse(self.book_image_url).path.split('/')[-1]
+            urllib.request.urlretrieve(self.book_image_url, os.path.join(file_save_dir, filename) )
+            print(os.path.join(file_save_dir, filename),"-------------------")
+            self.book_image = os.path.join(file_save_dir, filename)
+            # self.book_image_url = ''
+            print("saved image with filename ",filename)
+        super(Book, self).save()    
 
     def __str__(self):
         return self.book_name
 
+@receiver(pre_save, sender=Book)
+def cal_slug_book(sender, instance, **kw):
+    instance.website_url = f"{slugify(instance.book_name)}-{instance.pk}"
 
 class Cart(models.Model):
     user = models.ForeignKey(Register, on_delete=models.CASCADE)
@@ -127,7 +155,7 @@ class Offer_banner(models.Model):
     def running_offers(*args,**kwargs):
         active_offer = Offer_banner.objects.filter(payment=True,active=True).order_by('-payment_price')[:5]
         return active_offer 
-       
+
 @receiver(pre_save, sender=Offer_banner)
 def my_handler(sender,instance, **kwargs):
     instance.active = instance.offer_active_date <= datetime.today().date() <= instance.offer_expire_date
