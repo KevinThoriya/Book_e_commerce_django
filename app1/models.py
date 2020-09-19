@@ -2,6 +2,8 @@ from django.db import models
 from django.utils import timezone
 from datetime import datetime,timedelta
 from django.db.models import Q
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 
 class Contact(models.Model):
@@ -114,17 +116,18 @@ class Offer_banner(models.Model):
     offer_redirection_url = models.URLField(null=False)
     offer_active_date = models.DateField(default=datetime.today)
     offer_expire_date = models.DateField(default=get_expire)
-    payment_price = models.IntegerField(max_length=10)
+    payment_price = models.IntegerField(default=0)
     payment = models.BooleanField(default=0)
-    expire = models.BooleanField(default=0) 
+    active = models.BooleanField(default=0)
 
     def __str__(self):
         return self.offer_main_title
 
     @staticmethod
     def running_offers(*args,**kwargs):
-        active_offer = Offer_banner.objects.filter(payment=True,expire=False).order_by('-payment_price')[:5]
+        active_offer = Offer_banner.objects.filter(payment=True,active=True).order_by('-payment_price')[:5]
         return active_offer 
        
-    # Must Add this in form validation by_yk 
-    # widget = forms.SelectDateWidget(years=range(2020, 2100)) sure YK will add this 
+@receiver(pre_save, sender=Offer_banner)
+def my_handler(sender,instance, **kwargs):
+    instance.active = instance.offer_active_date <= datetime.today().date() <= instance.offer_expire_date
