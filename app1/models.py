@@ -68,7 +68,7 @@ class Book(models.Model):
             filename = urlparse(self.book_image_url).path.split('/')[-1]
             urllib.request.urlretrieve(self.book_image_url, os.path.join(file_save_dir, filename) )
             print(os.path.join(file_save_dir, filename),"-------------------")
-            self.book_image = os.path.join(file_save_dir, filename)
+            self.book_image = os.path.join(self.book_category, filename)
             # self.book_image_url = ''
             print("saved image with filename ",filename)
         super(Book, self).save()    
