@@ -9,13 +9,38 @@
 <!--Offer Banner ended-->
 
 <!--Best Sellers Book started-->
-  {% include 'app1/next_level/conponents/best_sellers.html' with id="trending_product" text1="Trending" text2="Books"  %}
+  {% include 'app1/next_level/conponents/best_sellers.html' with id="Top_python" text1="Best Selling of " text2=" Javascript" books=book_JavaScript %}
 <!--Best sellers book ended-->
+
+
+<!--Best Sellers Book started-->
+{% include 'app1/next_level/conponents/best_sellers.html' with id="asp" text1="Top Selling of " text2=" ASP.NET" books=book_ASP_NET %}
+<!--Best sellers book ended-->
+
+
+<!--Best Sellers Book started-->
+{% include 'app1/next_level/conponents/best_sellers.html' with id="css" text1="Best Selling of " text2=" CSS" books=book_CSS %}
+<!--Best sellers book ended-->
+
+
+<!--Best Sellers Book started-->
+{% include 'app1/next_level/conponents/best_sellers.html' with id="com" text1="Top Selling of " text2=" Complier Design" books=book_Compiler %}
+<!--Best sellers book ended-->
+
+
+<!--Best Sellers Book started-->
+{% include 'app1/next_level/conponents/best_sellers.html' with id="rubi" text1="Best Selling of " text2=" Rubi" books=book_Rubi %}
+<!--Best sellers book ended-->
+
+<!--Best Sellers Book started-->
+{% include 'app1/next_level/conponents/best_sellers.html' with id="java" text1="Top Selling of " text2=" Java" books=book_Java %}
+<!--Best sellers book ended-->
+
 
   {% include 'app1/next_level/conponents/free_delevery_box.html' %}
 
   <!--new arrive started-->
-  {% include 'app1/next_level/conponents/best_sellers.html' with id="new_added" text1="New" text2="Added" %}
+  {% include 'app1/next_level/conponents/best_sellers.html' with id="new_added" text1="New" text2="Added"  books=extra_books %}
 <!--new arrive ended-->
 
   {% include 'app1/next_level/conponents/fotter.html' %}

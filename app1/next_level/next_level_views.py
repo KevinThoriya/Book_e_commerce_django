@@ -38,9 +38,17 @@ def get_common_values(request):
 def index(request):
     context = get_common_values(request)
     context.update({
-        'offers' : Offer_banner.running_offers()
+        'offers' : Offer_banner.running_offers(),
+        'book_python' : Book.objects.filter(book_category='Python')[:10],
+        'book_JavaScript' : Book.objects.filter(book_category='JavaScript')[:10],
+        'book_ASP_NET' : Book.objects.filter(book_category='ASP_NET')[:10],
+        'book_CSS' : Book.objects.filter(book_category='CSS')[:10],
+        'book_Compiler' : Book.objects.filter(book_category='Compiler')[:10],
+        'book_Rubi' : Book.objects.filter(book_category='Rubi')[:10],
+        'book_Java' : Book.objects.filter(book_category='Java')[:10],
+        'extra_books' : Book.objects.all()[:10]
     })
-    print(context)
+
     return render(request,'app1/next_level/index.html',context)
 
 def product_detail(request):
@@ -53,7 +61,9 @@ def about_us(request):
 
 def book_list(request):
     context = get_common_values(request)
-    # Sorting, filtering of book done here based on passing pera 
+    context.update({
+        'books': Book.objects.all()[:50]
+    })
     return render(request,'app1/next_level/book_list.html',context)
 
 def services(request):
@@ -134,9 +144,11 @@ def book_filter(request):
     rendering_div = ''
     product_dic = {}
     if not cate == 'All Categories':
-        product_dic.update({'image_url':static('app1/images/next_level/'+cate.lower()+'_demo.png')})
-    for i in range(0,10):
-        rendering_div += template.render(product_dic,request)
+        product_dic.update({'books': Book.objects.filter(book_category=cate)})
+    else :
+        product_dic.update({'books': Book.objects.all()})
+    for i in product_dic['books']:
+        rendering_div += template.render({'book': i},request)
     return HttpResponse(json.dumps({'result': rendering_div}))
 
 

@@ -1,3 +1,4 @@
+{% load customtag %}
 <div class="best_sellers">
   <div class="bs_Bottom">
     <div class="container-fluid">
@@ -6,38 +7,23 @@
         <div id="{{ id }}" class="carousel slide row" data-ride="carousel" data-interval="0">
           <!-- Carousel indicators -->
           <ol class="carousel-indicators bs_notification">
-            <li data-target="#{{id}}" data-slide-to="2" class="bs_notifer active"></li>
-            <li data-target="#{{id}}" data-slide-to="0" class="bs_notifer "></li>
-            <li data-target="#{{id}}" data-slide-to="1" class="bs_notifer "></li>
+            {% for book in books|length|range_for_carousel:4 %}
+            <li data-target="#{{id}}" data-slide-to="{{forloop.counter}}" class="bs_notifer {% if forloop.first %}active{% endif %}"></li>
+            {% endfor %}
           </ol>
           <!-- Wrapper for carousel items -->
-          <div class="col-lg-1 col-xs-1"></div>
-          <div class="carousel-inner col-lg-10 col-xs-10">
-            <div class="carousel-item active">
-              <div class="row">
-                {% include 'app1/next_level/conponents/product_view.html'%}
-                {% include 'app1/next_level/conponents/product_view.html'%}
-                {% include 'app1/next_level/conponents/product_view.html'%}
-                {% include 'app1/next_level/conponents/product_view.html'%}
-              </div>
-            </div>
-            <div class="carousel-item ">
-              <div class="row">
-                {% include 'app1/next_level/conponents/product_view.html'%}
-                {% include 'app1/next_level/conponents/product_view.html'%}
-                {% include 'app1/next_level/conponents/product_view.html'%}
-                {% include 'app1/next_level/conponents/product_view.html'%}
-              </div>
-            </div>
-            <div class="carousel-item ">
-              <div class="row">
-                {% include 'app1/next_level/conponents/product_view.html'%}
-                {% include 'app1/next_level/conponents/product_view.html'%}
-                {% include 'app1/next_level/conponents/product_view.html'%}
-                {% include 'app1/next_level/conponents/product_view.html'%}
-              </div>
-            </div>
-          </div>
+          <div class="carousel-inner col-lg-12 col-xs-12">
+            {% for book in books %}
+            {% if forloop.counter|add:"-1"|divisibleby:4 or forloop.first %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <div class="row"> 
+              {% endif %}
+                      {% include 'app1/next_level/conponents/product_view.html' with book=book %}                
+                    {% if forloop.counter|divisibleby:4 or forloop.last %}
+                  </div>
+                </div>
+                    {% endif %}
+                    {% endfor %}
           <!-- Carousel controls -->
           <a class="carousel-control-prev bs_prev" href="#{{id}}" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
